@@ -1,6 +1,6 @@
 package org.example;
 import  org.example.process;
-import org.example.core;
+import org.example.core.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
