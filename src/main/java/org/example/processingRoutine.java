@@ -1,12 +1,18 @@
 package org.example;
+import  org.example.process;
+import org.example.core;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class processingRoutine {
     int time=0;
     int numberOfCores;
     ArrayList<process>ProcessList = new ArrayList<>();
     ArrayList<core>CoreList= new ArrayList<>();
+    void CreateProcessObj(String read){
+        System.out.println(read);
+    }
 
     void RoutineLoop(){
 
@@ -26,15 +32,6 @@ public class processingRoutine {
 
     void coreRequest(process CoreProcess){
         ArrayList<process> coreReadyQueue= new ArrayList<>();
-        if(CoreAvailablity()==true){
-            if(!coreReadyQueue.isEmpty()){
-                    numberOfCores--;
-                    process coreProcesPop=coreReadyQueue.remove(0);
-                    time=time+coreProcesPop.timeRequest;
-        }
-        else{
-            coreReadyQueue.add(CoreProcess);
-        }
 
 
 

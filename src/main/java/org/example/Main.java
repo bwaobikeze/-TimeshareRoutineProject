@@ -1,9 +1,15 @@
 package org.example;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello world!");
-        processingRoutine beginProcess= new processingRoutine();
-        beginProcess.ArrivleTime(200,2);
+        //processingRoutine beginProcess= new processingRoutine();
+        System.out.println("Hello world!");
+//        Scanner input=new Scanner(System.in);
+//        while(input.hasNext()){
+//            String text=input.next();
+//            beginProcess.CreateProcessObj(text);
+//        }
+
     }
 }
