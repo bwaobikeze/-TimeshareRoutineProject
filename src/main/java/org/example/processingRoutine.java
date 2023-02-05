@@ -5,9 +5,14 @@ import java.util.ArrayList;
 public class processingRoutine {
     int markBusy;
     int time=0;
-    int numberOfCores;
+    int numberOfCores=1;
     ArrayList<process>ProcessList = new ArrayList<>();
-    ArrayList<core>CoreList= new ArrayList<>();
+    ArrayList<core>CoreList= new ArrayList<>(){{
+        core cor1 = new core();
+        add(cor1);
+    }
+
+    };
 
     ArrayList<process> coreReadyQueue= new ArrayList<>();
     void CreateProcessObj(String read){
@@ -15,28 +20,10 @@ public class processingRoutine {
 
     }
 
-//    void RoutineLoop(){
-//        while(!ProcessList.isEmpty()){
-//            process currentProcess=ProcessList.remove(0);
-//            if(currentProcess.subProcessName=="START"){
-//                ArrivleTime(currentProcess);
-//            }
-//            else if(currentProcess.subProcessName=="CPU"){
-//                coreComplete(currentProcess);
-//            }
-//            else if(currentProcess.subProcessName=="SSD"){
-//                SSDRequest(currentProcess);
-//            }
-//            else if(currentProcess.subProcessName=="OUTPUT"||currentProcess.subProcessName=="INPUT"){
-//                inputOutputRequest(currentProcess);
-//            }
-//            else{
-//                System.out.println("Process"+ currentProcess.processNum+"is terminaated!");
-//            }
-//        }
-//
-//    }
-//    void ArrivleTime(process arrivePro){
+
+    void ArrivleTime(process arrivePro){
+        ProcessList.add(arrivePro);
+        //RoutineLoop();
 //        int busyCores=0;
 //        String processInReadyQueue="";
 //        for(int i =0; i<CoreList.size(); i++){
@@ -56,43 +43,69 @@ public class processingRoutine {
 //
 //
 //
-//    }
-    public boolean CoreAvailablity(){
+    }
+    public void CoreAvailablity(process CoreProcess){
         for( int i=0; i< CoreList.size();i++){
             if(CoreList.get(i).availabilty==true){
-                markBusy=i;
-                return true;
+               numberOfCores--;
+               markBusy=i;
+                CoreList.get(i).availabilty=false;
+               coreComplete(CoreProcess);
+            }
+            else{
+                coreReadyQueue.add(CoreProcess);
             }
         }
-        return false;
+
     }
 
-    void coreComplete(process CoreProcess){
-        coreReadyQueue.add(CoreProcess);
-        process tempCoreProssed;
-        if(CoreAvailablity()==true){
-            CoreList.get(markBusy).availabilty=false;
-            numberOfCores--;
-            if(!coreReadyQueue.isEmpty()){
-                tempCoreProssed=coreReadyQueue.remove(0);
-                time=time+ tempCoreProssed.timeRequest;
-                CoreList.get(markBusy).availabilty=true;
-                numberOfCores++;
-            }
-        }
+    void coreComplete(process CoreProcessReady){
+        coreReadyQueue.add(CoreProcessReady);
 
+        process tempCoreProssed;
+        if(!coreReadyQueue.isEmpty()){
+            tempCoreProssed=coreReadyQueue.remove(0);
+            time=time+ tempCoreProssed.timeRequest;
+            numberOfCores++;
+            CoreList.get(markBusy).availabilty=true;
+        }
+        else{
+            numberOfCores++;
+            CoreList.get(markBusy).availabilty=true;
+        }
 
 
 
         //System.out.println("coreRequest Function");
     }
-//    void inputOutputRequest(process inputOutputPro){
-//        System.out.println("inputOutputRequest Function");
-//    }
-//    void SSDRequest(process SSDPro){
-//        System.out.println("SSDRequest Function");
-//    }
-//    void lockRequest(process LockPro){
-//        System.out.println("lockRequest Function");
-//    }
+    void inputOutputRequest(process inputOutputPro){
+        System.out.println("inputOutputRequest Function");
+    }
+    void SSDRequest(process SSDPro){
+        System.out.println("SSDRequest Function");
+    }
+    void lockRequest(process LockPro){
+        System.out.println("lockRequest Function");
+    }
+    void RoutineLoop(){
+        while(!ProcessList.isEmpty()){
+            process currentProcess=ProcessList.remove(0);
+            if(currentProcess.subProcessName=="START"){
+                ArrivleTime(currentProcess);
+            }
+            else if(currentProcess.subProcessName=="CPU"){
+                coreComplete(currentProcess);
+            }
+            else if(currentProcess.subProcessName=="SSD"){
+                SSDRequest(currentProcess);
+            }
+            else if(currentProcess.subProcessName=="OUTPUT"||currentProcess.subProcessName=="INPUT"){
+                inputOutputRequest(currentProcess);
+            }
+            else{
+                System.out.println("Process"+ currentProcess.processNum+"is terminaated at "+time+"ms");
+            }
+        }
+
+    }
 }

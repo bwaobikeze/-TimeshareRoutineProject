@@ -5,9 +5,9 @@ public class process {
     String subProcessName;
     int timeRequest;
     String ProcessState;
-    process(int processNum,String subProcessName,int timeRequest){
+    process(int processNum,String subProcessName){
         this.processNum=processNum;
         this.subProcessName=subProcessName;
-        this.timeRequest=timeRequest;
+        this.timeRequest=0;
     }
 }
