@@ -12,13 +12,14 @@ public class Main {
             beginProcess.CreateProcessObj(text);
 
         }
-//        for(int i=0; i<beginProcess.ProcessList.size();i++){
-//            System.out.println(beginProcess.ProcessList.get(i).processNum);
-//            System.out.println(beginProcess.ProcessList.get(i).subProcessName);
-//            System.out.println(beginProcess.ProcessList.get(i).timeRequest);
-//            System.out.println("====================================");
-//
-//        }
+        //System.out.println(beginProcess.ProcessList.get(0).subProcessName);
+        for(int i=0; i<beginProcess.ProcessList.size();i++){
+            System.out.println("Process: "+beginProcess.ProcessList.get(i).processNum);
+            System.out.println("Subprocess: "+beginProcess.ProcessList.get(i).subProcessName);
+            System.out.println("Arrivle Time: "+beginProcess.ProcessList.get(i).timeRequest);
+            System.out.println("====================================");
+
+        }
 
 
     }

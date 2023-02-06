@@ -19,14 +19,14 @@ public class processingRoutine {
         read.trim();
         split1=read.split(" ",5);
 
-//        if(split1[0]=="START"){
-//            processNum++;
-//            currentProcess.processNum = processNum;
-//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-//            currentProcess.subProcessName = split1[0];
-//            ProcessList.add(currentProcess);
-//        }
-//        else if (split1[0]=="NCORES"){
+        if(split1[0].equals("START")){
+           processNum= processNum++;
+            currentProcess.processNum = processNum;
+            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+            currentProcess.subProcessName = split1[0];
+            ProcessList.add(currentProcess);
+        }
+//        else if (split1[0].equals("NCORES")){
 //            int i=0;
 //            int coreCreater=Integer.parseInt(split1[split1.length-1]);
 //            numberOfCores=Integer.parseInt(split1[split1.length-1]);
@@ -35,35 +35,32 @@ public class processingRoutine {
 //                CoreList.add(currentCore);
 //            }
 //        }
-//        else if(split1[0]=="CPU") {
-//            currentProcess.processNum = processNum;
-//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-//            currentProcess.subProcessName = split1[0];
-//            ProcessList.add(currentProcess);
-//        }
-//        else if(split1[0]=="SSD"){
-//            currentProcess.processNum = processNum;
-//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-//            currentProcess.subProcessName = split1[0];
-//            ProcessList.add(currentProcess);
-//        }
-//        else if(split1[0]=="OUTPUT"||split1[0]=="INPUT"){
-//            currentProcess.processNum = processNum;
-//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-//            currentProcess.subProcessName = split1[0];
-//            ProcessList.add(currentProcess);
-//        }
-//        else if(split1[0]=="END"){
-//            currentProcess.processNum = processNum;
-//            currentProcess.subProcessName = split1[0];
-//        }
-
-
-            System.out.println("Name: "+split1[0]);
-            System.out.println("Arrivle time: "+split1[split1.length-1]);
-        System.out.println("=================");
-
-
+        else if(split1[0].equals("CPU")) {
+            currentProcess.processNum = processNum;
+            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+            currentProcess.subProcessName = split1[0];
+            ProcessList.add(currentProcess);
+        }
+        else if(split1[0].equals("SSD")){
+            currentProcess.processNum = processNum;
+            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+            currentProcess.subProcessName = split1[0];
+            ProcessList.add(currentProcess);
+        }
+        else if(split1[0].equals("OUTPUT")||split1[0].equals("INPUT")){
+            currentProcess.processNum = processNum;
+            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+            currentProcess.subProcessName = split1[0];
+            ProcessList.add(currentProcess);
+        }
+        else if(split1[0].equals("END")){
+            currentProcess.processNum = processNum;
+            currentProcess.subProcessName = split1[0];
+            ProcessList.add(currentProcess);
+        }
+//            System.out.println("Name: "+split1[0]);
+//            System.out.println("Arrivle time: "+split1[split1.length-1]);
+//        System.out.println("=================");
 
     }
 
