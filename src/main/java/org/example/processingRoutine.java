@@ -7,16 +7,63 @@ public class processingRoutine {
     int time=0;
     int numberOfCores=1;
     ArrayList<process>ProcessList = new ArrayList<>();
-    ArrayList<core>CoreList= new ArrayList<>(){{
-        core cor1 = new core();
-        add(cor1);
-    }
-
-    };
+    ArrayList<core>CoreList= new ArrayList<>();
 
     ArrayList<process> coreReadyQueue= new ArrayList<>();
     void CreateProcessObj(String read){
-        System.out.println(read.charAt(0));
+        int processNum=0;
+        process currentProcess =new process();
+        String[] split1;
+//        System.out.println(read);
+//        System.out.println("=================");
+        read.trim();
+        split1=read.split(" ",5);
+
+//        if(split1[0]=="START"){
+//            processNum++;
+//            currentProcess.processNum = processNum;
+//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+//            currentProcess.subProcessName = split1[0];
+//            ProcessList.add(currentProcess);
+//        }
+//        else if (split1[0]=="NCORES"){
+//            int i=0;
+//            int coreCreater=Integer.parseInt(split1[split1.length-1]);
+//            numberOfCores=Integer.parseInt(split1[split1.length-1]);
+//            while(i<coreCreater){
+//                core currentCore= new core();
+//                CoreList.add(currentCore);
+//            }
+//        }
+//        else if(split1[0]=="CPU") {
+//            currentProcess.processNum = processNum;
+//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+//            currentProcess.subProcessName = split1[0];
+//            ProcessList.add(currentProcess);
+//        }
+//        else if(split1[0]=="SSD"){
+//            currentProcess.processNum = processNum;
+//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+//            currentProcess.subProcessName = split1[0];
+//            ProcessList.add(currentProcess);
+//        }
+//        else if(split1[0]=="OUTPUT"||split1[0]=="INPUT"){
+//            currentProcess.processNum = processNum;
+//            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+//            currentProcess.subProcessName = split1[0];
+//            ProcessList.add(currentProcess);
+//        }
+//        else if(split1[0]=="END"){
+//            currentProcess.processNum = processNum;
+//            currentProcess.subProcessName = split1[0];
+//        }
+
+
+            System.out.println("Name: "+split1[0]);
+            System.out.println("Arrivle time: "+split1[split1.length-1]);
+        System.out.println("=================");
+
+
 
     }
 
@@ -73,10 +120,6 @@ public class processingRoutine {
             numberOfCores++;
             CoreList.get(markBusy).availabilty=true;
         }
-
-
-
-        //System.out.println("coreRequest Function");
     }
     void inputOutputRequest(process inputOutputPro){
         System.out.println("inputOutputRequest Function");
@@ -103,7 +146,7 @@ public class processingRoutine {
                 inputOutputRequest(currentProcess);
             }
             else{
-                System.out.println("Process"+ currentProcess.processNum+"is terminaated at "+time+"ms");
+                System.out.println("Process "+ currentProcess.processNum+" is terminaated at "+time+"ms");
             }
         }
 
