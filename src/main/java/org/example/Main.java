@@ -1,13 +1,13 @@
 package org.example;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Main {
+
     public static void main(String[] args) {
         int count=0;
         processingRoutine beginProcess= new processingRoutine();
-        ArrayList<process> ProcessList = new ArrayList<>();
+        PriorityQueue<process> ProcessList = new PriorityQueue<>(new ProcessCompar());
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
             //count++;
@@ -53,19 +53,43 @@ public class Main {
             }
 
         }
-        while(!ProcessList.isEmpty()){
-            process currentProcessInLoop= new process();
-            currentProcessInLoop=ProcessList.remove(0);
-            beginProcess.RoutineLoop(currentProcessInLoop);
-        }
-//        for(int i=0; i<ProcessList.size();i++){
-//            System.out.println("Process Number:"+ProcessList.get(i).processNum);
-//            System.out.println("Sub Process: "+ProcessList.get(i).subProcessName);
-//            System.out.println("Arrival Time: "+ProcessList.get(i).timeRequest);
+//        while(!ProcessList.isEmpty()){
+//            process currentProcessInLoop= new process();
+//            currentProcessInLoop=ProcessList.remove(0);
+//            beginProcess.RoutineLoop(currentProcessInLoop);
+//        }
+        Iterator<process> itr = ProcessList.iterator();
+//        while(itr.hasNext()){
+//            process currentPro=itr.next();
+//            itr.remove();
+//            beginProcess.RoutineLoop(currentPro);
+//        }
+        System.out.println(ProcessList.peek().subProcessName);
+        //        for(int i=0; i<ProcessList.size();i++){
+//            process currentProcessInLoop= new process();
+//            currentProcessInLoop=ProcessList.remove();
+//            System.out.println("Process Number:"+ currentProcessInLoop.processNum);
+//            System.out.println("Sub Process: "+ currentProcessInLoop.subProcessName);
+//            System.out.println("Arrival Time: "+ currentProcessInLoop.timeRequest);
 //            System.out.println("=================");
 //
 //        }
 
 
+
+    }
+}
+class ProcessCompar implements Comparator<process> {
+    public int ComparePro(process p1, process p2){
+        if (p1.timeRequest < p2.timeRequest)
+            return 1;
+        else if (p1.timeRequest > p2.timeRequest)
+            return -1;
+        return 0;
+    }
+
+    @Override
+    public int compare(process o1, process o2) {
+        return 0;
     }
 }

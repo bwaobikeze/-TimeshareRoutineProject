@@ -27,7 +27,7 @@ void createCores(int numOFCores){
             ArrivleTime(currentProcess);
         }
         else if(currentProcess.subProcessName.equals("CPU")){
-            coreComplete(currentProcess);
+            CoreAvailablity(currentProcess);
         }
 //        else if(currentProcess.subProcessName=="SSD"){
 //            SSDRequest(currentProcess);
@@ -56,8 +56,11 @@ void createCores(int numOFCores){
 
         }
         System.out.println("Process "+arrivePro.processNum+" starts at t="+arrivePro.timeRequest+"ms");
+        time=arrivePro.timeRequest;
         System.out.println("Current number of busy cores: "+busyCores);
-        System.out.println("Ready Queue has Processes "+processInReadyQueue);
+        System.out.println("Ready Queue has Processes "+ processInReadyQueue);
+        System.out.println(time);
+
 
     }
     public void CoreAvailablity(process CoreProcess){
