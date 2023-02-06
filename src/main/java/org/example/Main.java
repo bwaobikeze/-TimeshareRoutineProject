@@ -8,7 +8,6 @@ public class Main {
         int count=0;
         processingRoutine beginProcess= new processingRoutine();
         ArrayList<process> ProcessList = new ArrayList<>();
-        //System.out.println("Hello world2!");
         Scanner input=new Scanner(System.in);
         while(input.hasNext()){
             //count++;
@@ -54,18 +53,18 @@ public class Main {
             }
 
         }
-//        while(!ProcessList.isEmpty()){
-//            process currentProcessInLoop= new process();
-//            currentProcessInLoop=ProcessList.remove(0);
-//            beginProcess.RoutineLoop(currentProcessInLoop);
-//        }
-        for(int i=0; i<ProcessList.size();i++){
-            System.out.println("Process Number:"+ProcessList.get(i).processNum);
-            System.out.println("Sub Process: "+ProcessList.get(i).subProcessName);
-            System.out.println("Arrival Time: "+ProcessList.get(i).timeRequest);
-            System.out.println("=================");
-
+        while(!ProcessList.isEmpty()){
+            process currentProcessInLoop= new process();
+            currentProcessInLoop=ProcessList.remove(0);
+            beginProcess.RoutineLoop(currentProcessInLoop);
         }
+//        for(int i=0; i<ProcessList.size();i++){
+//            System.out.println("Process Number:"+ProcessList.get(i).processNum);
+//            System.out.println("Sub Process: "+ProcessList.get(i).subProcessName);
+//            System.out.println("Arrival Time: "+ProcessList.get(i).timeRequest);
+//            System.out.println("=================");
+//
+//        }
 
 
     }
