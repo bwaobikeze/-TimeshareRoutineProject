@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="Almost done with Input function">
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="Almost done with Input function(Partily Working)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/read.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675669137739</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Almost done with Input function(Partily Working)">
+      <created>1675672867948</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675672867948</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +167,7 @@
     <MESSAGE value="testing Core Function" />
     <MESSAGE value="testing Core Function(second Approch)" />
     <MESSAGE value="Almost done with Input function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost done with Input function" />
+    <MESSAGE value="Almost done with Input function(Partily Working)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost done with Input function(Partily Working)" />
   </component>
 </project>

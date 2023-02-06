@@ -5,68 +5,24 @@ import java.util.ArrayList;
 public class processingRoutine {
     int markBusy;
     int time=0;
-    int numberOfCores=1;
-    ArrayList<process>ProcessList = new ArrayList<>();
+    int numberOfCores;
+    ArrayList<process>SSDQueue = new ArrayList<>();
     ArrayList<core>CoreList= new ArrayList<>();
 
     ArrayList<process> coreReadyQueue= new ArrayList<>();
-    void CreateProcessObj(String read){
-        int processNum=0;
-        process currentProcess =new process();
-        String[] split1;
-//        System.out.println(read);
-//        System.out.println("=================");
-        read.trim();
-        split1=read.split(" ",5);
 
-        if(split1[0].equals("START")){
-           processNum= processNum++;
-            currentProcess.processNum = processNum;
-            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-            currentProcess.subProcessName = split1[0];
-            ProcessList.add(currentProcess);
-        }
-//        else if (split1[0].equals("NCORES")){
-//            int i=0;
-//            int coreCreater=Integer.parseInt(split1[split1.length-1]);
-//            numberOfCores=Integer.parseInt(split1[split1.length-1]);
-//            while(i<coreCreater){
-//                core currentCore= new core();
-//                CoreList.add(currentCore);
-//            }
-//        }
-        else if(split1[0].equals("CPU")) {
-            currentProcess.processNum = processNum;
-            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-            currentProcess.subProcessName = split1[0];
-            ProcessList.add(currentProcess);
-        }
-        else if(split1[0].equals("SSD")){
-            currentProcess.processNum = processNum;
-            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-            currentProcess.subProcessName = split1[0];
-            ProcessList.add(currentProcess);
-        }
-        else if(split1[0].equals("OUTPUT")||split1[0].equals("INPUT")){
-            currentProcess.processNum = processNum;
-            currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
-            currentProcess.subProcessName = split1[0];
-            ProcessList.add(currentProcess);
-        }
-        else if(split1[0].equals("END")){
-            currentProcess.processNum = processNum;
-            currentProcess.subProcessName = split1[0];
-            ProcessList.add(currentProcess);
-        }
-//            System.out.println("Name: "+split1[0]);
-//            System.out.println("Arrivle time: "+split1[split1.length-1]);
-//        System.out.println("=================");
+void createCores(int numOFCores){
+    int i=0;
+    numberOfCores=numOFCores;
 
+    while(i<numOFCores){
+    core currentCore= new core();
+     CoreList.add(currentCore);
+      i++;
     }
-
+}
 
     void ArrivleTime(process arrivePro){
-        ProcessList.add(arrivePro);
         //RoutineLoop();
 //        int busyCores=0;
 //        String processInReadyQueue="";
@@ -127,9 +83,7 @@ public class processingRoutine {
     void lockRequest(process LockPro){
         System.out.println("lockRequest Function");
     }
-    void RoutineLoop(){
-        while(!ProcessList.isEmpty()){
-            process currentProcess=ProcessList.remove(0);
+    void RoutineLoop(process currentProcess){
             if(currentProcess.subProcessName=="START"){
                 ArrivleTime(currentProcess);
             }
@@ -145,7 +99,7 @@ public class processingRoutine {
             else{
                 System.out.println("Process "+ currentProcess.processNum+" is terminaated at "+time+"ms");
             }
-        }
+
 
     }
 }
