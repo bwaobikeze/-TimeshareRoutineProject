@@ -27,7 +27,7 @@ void createCores(int numOFCores){
             ArrivleTime(currentProcess);
         }
         else if(currentProcess.subProcessName.equals("CPU")){
-            CoreAvailablity(currentProcess);
+            coreComplete(currentProcess);
         }
 //        else if(currentProcess.subProcessName=="SSD"){
 //            SSDRequest(currentProcess);
@@ -43,6 +43,9 @@ void createCores(int numOFCores){
     }
 
     void ArrivleTime(process arrivePro){
+
+        System.out.println("Process "+arrivePro.processNum+" starts at t="+arrivePro.timeRequest+"ms");
+        time=arrivePro.timeRequest;
         int busyCores=0;
         String processInReadyQueue="";
         for(int i =0; i<CoreList.size(); i++){
@@ -50,47 +53,52 @@ void createCores(int numOFCores){
                 busyCores++;
             }
         }
+        System.out.println("Current number of busy cores: "+busyCores);
         for(int j=0; j<coreReadyQueue.size();j++){
             processInReadyQueue+=Integer.toString(coreReadyQueue.get(j).processNum);
             processInReadyQueue+=",";
 
         }
-        System.out.println("Process "+arrivePro.processNum+" starts at t="+arrivePro.timeRequest+"ms");
-        time=arrivePro.timeRequest;
-        System.out.println("Current number of busy cores: "+busyCores);
         System.out.println("Ready Queue has Processes "+ processInReadyQueue);
-        System.out.println(time);
+        System.out.println("====================");
 
 
     }
-    public void CoreAvailablity(process CoreProcess){
+    public boolean CoreAvailablity(){
+
+
         for( int i=0; i< CoreList.size();i++){
             if(CoreList.get(i).availabilty==true){
-               numberOfCores--;
                markBusy=i;
-                CoreList.get(i).availabilty=false;
-               coreComplete(CoreProcess);
+               return true;
             }
-            else{
-                coreReadyQueue.add(CoreProcess);
-            }
+
         }
+        return false;
 
     }
 
     void coreComplete(process CoreProcessReady){
-        coreReadyQueue.add(CoreProcessReady);
-
-        process tempCoreProssed;
-        if(!coreReadyQueue.isEmpty()){
-            tempCoreProssed=coreReadyQueue.remove(0);
-            time=time+ tempCoreProssed.timeRequest;
-            numberOfCores++;
-            CoreList.get(markBusy).availabilty=true;
+        if(CoreAvailablity()==true){
+            numberOfCores--;
+            CoreList.get(markBusy).availabilty=false;
+            time+=CoreProcessReady.timeRequest;
         }
         else{
-            numberOfCores++;
-            CoreList.get(markBusy).availabilty=true;
+            coreReadyQueue.add(CoreProcessReady);
+        }
+        if(!coreReadyQueue.isEmpty()){
+            if(CoreAvailablity()==true){
+                process processTemp=coreReadyQueue.remove(0);
+                numberOfCores--;
+                CoreList.get(markBusy).availabilty=false;
+                time+=processTemp.timeRequest;
+
+            }
+            else{
+                numberOfCores++;
+                CoreList.get(markBusy).availabilty=true;
+            }
         }
     }
     void inputOutputRequest(process inputOutputPro){
