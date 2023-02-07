@@ -27,17 +27,18 @@ void createCores(int numOFCores){
             ArrivleTime(currentProcess);
         }
         else if(currentProcess.subProcessName.equals("CPU")){
-            coreComplete(currentProcess);
+            CoreAvailablity(currentProcess);
         }
-//        else if(currentProcess.subProcessName=="SSD"){
-//            SSDRequest(currentProcess);
-//        }
-//        else if(currentProcess.subProcessName=="OUTPUT"||currentProcess.subProcessName=="INPUT"){
-//            inputOutputRequest(currentProcess);
-//        }
-//        else{
-//            System.out.println("Process "+ currentProcess.processNum+" is terminaated at "+time+"ms");
-//        }
+        else if(currentProcess.subProcessName=="SSD"){
+            SSDRequest(currentProcess);
+        }
+        else if(currentProcess.subProcessName=="OUTPUT"||currentProcess.subProcessName=="INPUT"){
+            inputOutputRequest(currentProcess);
+        }
+        else{
+            System.out.println("Process "+ currentProcess.processNum+" is terminaated at "+time+"ms");
+            System.out.println("====================");
+        }
 
 
     }
@@ -45,7 +46,7 @@ void createCores(int numOFCores){
     void ArrivleTime(process arrivePro){
 
         System.out.println("Process "+arrivePro.processNum+" starts at t="+arrivePro.timeRequest+"ms");
-        time=arrivePro.timeRequest;
+        time+=arrivePro.timeRequest;
         int busyCores=0;
         String processInReadyQueue="";
         for(int i =0; i<CoreList.size(); i++){
@@ -64,42 +65,58 @@ void createCores(int numOFCores){
 
 
     }
-    public boolean CoreAvailablity(){
+    public void CoreAvailablity(process CoreProcessReady1){
 
 
-        for( int i=0; i< CoreList.size();i++){
-            if(CoreList.get(i).availabilty==true){
-               markBusy=i;
-               return true;
-            }
-
+//        for( int i=0; i< CoreList.size();i++){
+//            if(CoreList.get(i).availabilty==true){
+//               markBusy=i;
+//               return true;
+//            }
+//
+//        }
+//        return false;
+        if(numberOfCores>0){
+            numberOfCores--;
+            coreComplete(CoreProcessReady1);
         }
-        return false;
+        else{
+            coreReadyQueue.add(CoreProcessReady1);
+        }
 
     }
 
     void coreComplete(process CoreProcessReady){
-        if(CoreAvailablity()==true){
-            numberOfCores--;
-            CoreList.get(markBusy).availabilty=false;
-            time+=CoreProcessReady.timeRequest;
-        }
-        else{
             coreReadyQueue.add(CoreProcessReady);
-        }
-        if(!coreReadyQueue.isEmpty()){
-            if(CoreAvailablity()==true){
-                process processTemp=coreReadyQueue.remove(0);
-                numberOfCores--;
-                CoreList.get(markBusy).availabilty=false;
-                time+=processTemp.timeRequest;
-
-            }
-            else{
+            while(!coreReadyQueue.isEmpty()){
+                process tempProcess=coreReadyQueue.remove(0);
+                //System.out.println("POP Out List "+tempProcess.timeRequest);
+                time+=tempProcess.timeRequest;
                 numberOfCores++;
-                CoreList.get(markBusy).availabilty=true;
             }
-        }
+
+//        if(CoreAvailablity()==true){
+//            numberOfCores--;
+//            CoreList.get(markBusy).availabilty=false;
+//            time+=CoreProcessReady.timeRequest;
+//        }
+//        else{
+//            coreReadyQueue.add(CoreProcessReady);
+//        }
+//        if(!coreReadyQueue.isEmpty()){
+//            if(CoreAvailablity()==true){
+//                process processTemp=coreReadyQueue.remove(0);
+//                numberOfCores--;
+//                CoreList.get(markBusy).availabilty=false;
+//                time+=processTemp.timeRequest;
+//                numberOfCores++;
+//                CoreList.get(markBusy).availabilty=true;
+//            }
+//            else{
+//                numberOfCores++;
+//                CoreList.get(markBusy).availabilty=true;
+//            }
+//        }
     }
     void inputOutputRequest(process inputOutputPro){
         System.out.println("inputOutputRequest Function");

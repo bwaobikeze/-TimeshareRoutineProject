@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="Working on Priorty queue( maybe working)">
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="Working on core Function( maybe working)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/read.txt" afterDir="false" />
     </list>
@@ -166,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675717922540</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Working on core Function( maybe working)">
+      <created>1675755637568</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675755637568</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +200,7 @@
     <MESSAGE value="Finished Input validation(working)" />
     <MESSAGE value="Working on Main Loop(working)" />
     <MESSAGE value="Working on Priorty queue( maybe working)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on Priorty queue( maybe working)" />
+    <MESSAGE value="Working on core Function( maybe working)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on core Function( maybe working)" />
   </component>
 </project>

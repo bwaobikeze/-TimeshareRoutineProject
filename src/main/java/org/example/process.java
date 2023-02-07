@@ -4,6 +4,7 @@ public class process {
     int processNum;
     String subProcessName;
     int timeRequest;
-    //String ProcessState;
+    String ProcessState;
+    boolean isCoreAvailable=false;
 
 }
