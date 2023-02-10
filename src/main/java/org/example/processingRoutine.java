@@ -8,6 +8,8 @@ public class processingRoutine {
     int numberOFSSD=1;
     ArrayList<process>SSDQueue = new ArrayList<>();
     ArrayList<core>CoreList= new ArrayList<>();
+    ArrayList<process> ProcessList = new ArrayList<>();
+    ArrayList<SubProcess>subProPointers = new ArrayList<>();
 
     ArrayList<process> coreReadyQueue= new ArrayList<>();
 
