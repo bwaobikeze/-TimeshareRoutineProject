@@ -1,10 +1,8 @@
 package org.example;
 
-public class process {
-    int processNum;
-    String subProcessName;
-    int timeRequest;
-    String ProcessState;
-    boolean isCoreAvailable=false;
+import java.util.ArrayList;
 
+public class process {
+    int ProcessNum;
+    ArrayList<SubProcess> ProcessEvents =new ArrayList<>();
 }

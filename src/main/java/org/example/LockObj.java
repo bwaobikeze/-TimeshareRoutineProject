@@ -2,9 +2,8 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class core {
+public class LockObj {
     boolean availabilty;
     int SubProcessDoneAt;
-    ArrayList<process> coreReadyQueue= new ArrayList<>();
-
+    ArrayList<SubProcess> LockReadyQueue= new ArrayList<>();
 }
