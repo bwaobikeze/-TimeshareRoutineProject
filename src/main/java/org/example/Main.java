@@ -70,8 +70,14 @@ public class Main {
 
 
         }
+        beginProcess.creatingEventList();
+        for(int i=0; i<beginProcess.subProPointers.size();i++){
+            System.out.println(beginProcess.subProPointers.get(i).subProcessName);
+      System.out.println(beginProcess.subProPointers.get(i).timeRequest);
+            System.out.println("=======================");
+        }
 //        System.out.println("Done");
-        System.out.println(beginProcess.ProcessList.get(0).ProcessEvents.get(0).subProcessName);
-        System.out.println(beginProcess.ProcessList.get(0).ProcessEvents.get(0).timeRequest);
+//        System.out.println(beginProcess.ProcessList.get(0).ProcessEvents.get(0).subProcessName);
+//        System.out.println(beginProcess.ProcessList.get(0).ProcessEvents.get(0).timeRequest);
     }
 }

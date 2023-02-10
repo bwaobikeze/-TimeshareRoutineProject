@@ -5,14 +5,20 @@ import java.util.ArrayList;
 public class processingRoutine {
     int time=0;
     int numberOfCores;
-    int numberOFSSD=1;
-    ArrayList<process>SSDQueue = new ArrayList<>();
-    ArrayList<core>CoreList= new ArrayList<>();
+    stateObj SSD= new stateObj();
+    stateObj IO = new stateObj();
+    ArrayList<stateObj>CoreList= new ArrayList<>();
+    ArrayList<SubProcess> eventQueue= new ArrayList<>();
     ArrayList<process> ProcessList = new ArrayList<>();
     ArrayList<SubProcess>subProPointers = new ArrayList<>();
 
-    ArrayList<process> coreReadyQueue= new ArrayList<>();
 
+    void creatingEventList(){
+        for(int i=0;i<ProcessList.size();i++){
+            SubProcess SubprocessPointer=ProcessList.get(i).ProcessEvents.get(0);
+            subProPointers.add(SubprocessPointer);
+        }
+    }
 
 //    void RoutineLoop(process currentProcess){
 //        if(currentProcess.subProcessName.equals("START")){
