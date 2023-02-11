@@ -1,6 +1,9 @@
 package org.example;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 public class processingRoutine {
     int time=0;
@@ -12,17 +15,49 @@ public class processingRoutine {
     ArrayList<process> ProcessList = new ArrayList<>();
     ArrayList<ArrayList>subProPointers = new ArrayList<>();
 
+/*
+*  Loads event list of processes
+*  approach:
+*   create and set loadingClock to 0
+*   create and store subProcessPointers list [0,0]
+*   while the "subProPointers" list is not empty
+*       get the lowest "*time value" from "subProPointers"
+*       get and store lowest time value type
+*       if lowest time value type is Start
+*           * do stuff
+*       else if lowest time value type is end
+*           * do stuff
+*       else
+*           * do stuff to regular process type i.e. SSD, CPU, Lock, IO
+*
+* */
 
     void creatingEventList(){
-        int loadingCloack=0;
-        SubProcess currentGretestEvent;
-        for(int i=0;i<ProcessList.size();i++){
-            ArrayList SubprocessPointer=ProcessList.get(i).ProcessEvents;
-            subProPointers.add(SubprocessPointer);
+        // initialize list of pointers
+        int[] subProIters = new int[ProcessList.size()];
+        // set all initial pointer valuse to zero
+        Arrays.fill(subProIters, 0);
+        // print all subPorcessess using pointer array
+        for(int processIdx = 0; processIdx < ProcessList.size(); processIdx++){
+            ArrayList<SubProcess> currentSubProcessList = ProcessList.get(processIdx).ProcessEvents;
+//            System.out.println(currentSubProcessList.get(processIdx).getSubProcessName());
+            while(subProIters[processIdx] < currentSubProcessList.size()){
+                SubProcess currentSubProcess = currentSubProcessList.get(subProIters[processIdx]);
+                System.out.println(currentSubProcess.getSubProcessName());
+                System.out.println(currentSubProcess.getTimeRequest());
+                subProIters[processIdx] += 1;
+            }
         }
-        while(!subProPointers.isEmpty()){
 
-        }
+//        int loadingCloack=0;
+//        SubProcess currentGretestEvent;
+//        for(int i=0;i<ProcessList.size();i++){
+//            ArrayList SubprocessPointer=ProcessList.get(i).ProcessEvents;
+//            subProPointers.add(SubprocessPointer);
+//        }
+//        while(!subProPointers.isEmpty()){
+//
+//        }
     }
 
 //    void RoutineLoop(process currentProcess){
