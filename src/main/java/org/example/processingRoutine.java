@@ -10,13 +10,18 @@ public class processingRoutine {
     ArrayList<stateObj>CoreList= new ArrayList<>();
     ArrayList<SubProcess> eventQueue= new ArrayList<>();
     ArrayList<process> ProcessList = new ArrayList<>();
-    ArrayList<SubProcess>subProPointers = new ArrayList<>();
+    ArrayList<ArrayList>subProPointers = new ArrayList<>();
 
 
     void creatingEventList(){
+        int loadingCloack=0;
+        SubProcess currentGretestEvent;
         for(int i=0;i<ProcessList.size();i++){
-            SubProcess SubprocessPointer=ProcessList.get(i).ProcessEvents.get(0);
+            ArrayList SubprocessPointer=ProcessList.get(i).ProcessEvents;
             subProPointers.add(SubprocessPointer);
+        }
+        while(!subProPointers.isEmpty()){
+
         }
     }
 

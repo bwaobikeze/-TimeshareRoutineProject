@@ -72,7 +72,7 @@ public class Main {
         }
         beginProcess.creatingEventList();
         for(int i=0; i<beginProcess.subProPointers.size();i++){
-            System.out.println(beginProcess.subProPointers.get(i).subProcessName);
+            System.out.println(beginProcess.subProPointers.get(i).next());
       System.out.println(beginProcess.subProPointers.get(i).timeRequest);
             System.out.println("=======================");
         }
