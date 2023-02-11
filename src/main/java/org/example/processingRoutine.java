@@ -20,9 +20,10 @@ public class processingRoutine {
 *  approach:
 *   create and set loadingClock to 0
 *   create and store subProcessPointers list [0,0]
-*   while the "subProPointers" list is not empty
-*       get the lowest "*time value" from "subProPointers"
-*       get and store lowest time value type
+*   create and set totalSubProcessesLen to length of all subProcesses
+*   Loop from 0 to totalSubProcessesLen
+*       get and store lowestTimeValue of all subProcesses
+*       get and store lowestTimeValueType of all subProcesses
 *       if lowest time value type is Start
 *           * do stuff
 *       else if lowest time value type is end
@@ -32,21 +33,41 @@ public class processingRoutine {
 *
 * */
 
+    SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime){
+        SubProcess lowestTImeValueSubProcess = new SubProcess();
+        for(int processIdx = 0; processIdx < subProcessIters.length; processIdx++){
+            SubProcess currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
+            if(lowestTImeValueSubProcess.subProcessName == null){
+                lowestTImeValueSubProcess = currentSubProcess;
+            } else {
+                int completionTIme = loadingTime + currentSubProcess.timeRequest;
+                if(completionTIme < loadingTime + lowestTImeValueSubProcess.timeRequest){
+                    lowestTImeValueSubProcess = currentSubProcess;
+                }
+            }
+        }
+        return lowestTImeValueSubProcess;
+    }
+
     void creatingEventList(){
+        // local time
+        int loadingTime = 0;
         // initialize list of pointers
         int[] subProIters = new int[ProcessList.size()];
         // set all initial pointer valuse to zero
         Arrays.fill(subProIters, 0);
         // print all subPorcessess using pointer array
+
+        // find total number of executions
+        int totalSubProcessesLen = 0;
         for(int processIdx = 0; processIdx < ProcessList.size(); processIdx++){
-            ArrayList<SubProcess> currentSubProcessList = ProcessList.get(processIdx).ProcessEvents;
-//            System.out.println(currentSubProcessList.get(processIdx).getSubProcessName());
-            while(subProIters[processIdx] < currentSubProcessList.size()){
-                SubProcess currentSubProcess = currentSubProcessList.get(subProIters[processIdx]);
-                System.out.println(currentSubProcess.getSubProcessName());
-                System.out.println(currentSubProcess.getTimeRequest());
-                subProIters[processIdx] += 1;
-            }
+            totalSubProcessesLen += ProcessList.get(processIdx).ProcessEvents.size();
+        }
+
+        for(int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++){
+            SubProcess lowestTimeValueProcess = getLowestTimeValueSubProcess(subProIters,loadingTime);
+            System.out.println(lowestTimeValueProcess.getSubProcessName());
+            System.out.println(lowestTimeValueProcess.getTimeRequest());
         }
 
 //        int loadingCloack=0;
