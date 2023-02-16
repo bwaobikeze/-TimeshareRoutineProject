@@ -7,47 +7,37 @@ import java.util.Iterator;
 
 public class processingRoutine {
     int time=0;
+    int busyCores=0;
     int numberOfCores;
+    int numberOFSSD=1;
     stateObj SSD= new stateObj();
     stateObj IO = new stateObj();
     ArrayList<stateObj>CoreList= new ArrayList<>();
     ArrayList<SubProcess> eventQueue= new ArrayList<>();
+    ArrayList <SubProcess> CoreReadyQueue = new ArrayList<>();
+    ArrayList<SubProcess> SSDQueue =new ArrayList<>();
     ArrayList<process> ProcessList = new ArrayList<>();
     ArrayList<ArrayList>subProPointers = new ArrayList<>();
 
-/*
-*  Loads event list of processes
-*  approach:
-*   create and set loadingClock to 0
-*   create and store subProcessPointers list [0,0]
-*   create and set totalSubProcessesLen to length of all subProcesses
-*   Loop from 0 to totalSubProcessesLen
-*       get and store lowestTimeValue of all subProcesses
-*       get and store lowestTimeValueType of all subProcesses
-*       if lowest time value type is Start
-*           * do stuff
-*       else if lowest time value type is end
-*           * do stuff
-*       else
-*           * do stuff to regular process type i.e. SSD, CPU, Lock, IO
-*
-* */
-
-    SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime){
-        SubProcess lowestTImeValueSubProcess = new SubProcess();
-        for(int processIdx = 0; processIdx < subProcessIters.length; processIdx++){
-            SubProcess currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
-            if(lowestTImeValueSubProcess.subProcessName == null){
-                lowestTImeValueSubProcess = currentSubProcess;
-            } else {
-                int completionTIme = loadingTime + currentSubProcess.timeRequest;
-                if(completionTIme < loadingTime + lowestTImeValueSubProcess.timeRequest){
-                    lowestTImeValueSubProcess = currentSubProcess;
-                }
-            }
-        }
-        return lowestTImeValueSubProcess;
-    }
+    // modify to pick the correct process
+//    SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime){
+//        SubProcess lowestTImeValueSubProcess = new SubProcess();
+//        // check for index of -1
+//        for(int processIdx = 0; processIdx < subProcessIters.length; processIdx++){
+//            if(subProcessIters[processIdx] < 0)
+//                continue;
+//            SubProcess currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
+//            if(lowestTImeValueSubProcess.subProcessName == null){
+//                lowestTImeValueSubProcess = currentSubProcess;
+//            } else {
+//                int completionTIme = loadingTime + currentSubProcess.timeRequest;
+//                if(completionTIme < loadingTime + lowestTImeValueSubProcess.timeRequest){
+//                    lowestTImeValueSubProcess = currentSubProcess;
+//                }
+//            }
+//        }
+//        return lowestTImeValueSubProcess;
+//    }
 
     void creatingEventList(){
         // local time
@@ -60,117 +50,107 @@ public class processingRoutine {
 
         // find total number of executions
         int totalSubProcessesLen = 0;
-        for(int processIdx = 0; processIdx < ProcessList.size(); processIdx++){
+        for (int processIdx = 0; processIdx < ProcessList.size(); processIdx++) {
             totalSubProcessesLen += ProcessList.get(processIdx).ProcessEvents.size();
         }
 
-        for(int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++){
-            SubProcess lowestTimeValueProcess = getLowestTimeValueSubProcess(subProIters,loadingTime);
-            System.out.println(lowestTimeValueProcess.getSubProcessName());
-            System.out.println(lowestTimeValueProcess.getTimeRequest());
-        }
+        for (int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++) {
 
-//        int loadingCloack=0;
-//        SubProcess currentGretestEvent;
-//        for(int i=0;i<ProcessList.size();i++){
-//            ArrayList SubprocessPointer=ProcessList.get(i).ProcessEvents;
-//            subProPointers.add(SubprocessPointer);
-//        }
-//        while(!subProPointers.isEmpty()){
-//
-//        }
+            SubProcess lowestTimeValueProcess = ProcessList.get(subProIters[0]).ProcessEvents.remove(0);
+            eventQueue.add(lowestTimeValueProcess);
+
+        }
     }
 
-//    void RoutineLoop(process currentProcess){
-//        if(currentProcess.subProcessName.equals("START")){
-//            ArrivleTime(currentProcess);
-//        }
-//        else if(currentProcess.subProcessName.equals("CPU")){
-//            CoreAvailablity(currentProcess);
-//        }
-//        else if(currentProcess.subProcessName.equals("SSD")){
-//            SSDRequest(currentProcess);
-//        }
-//        else if(currentProcess.subProcessName.equals("OUTPUT")||currentProcess.subProcessName.equals("INPUT")){
-//            inputOutputRequest(currentProcess);
-//        }
-//        else{
-//            System.out.println("Process "+ currentProcess.processNum+" is terminaated at "+time+"ms");
-//            System.out.println("====================");
-//        }
+    void RoutineLoop(){
+        while(!eventQueue.isEmpty()){
+            SubProcess currentProcess=eventQueue.remove(0);
+        if(currentProcess.subProcessName.equals("START")){
+            ArrivleTime(currentProcess);
+        }
+        else if(currentProcess.subProcessName.equals("CPU")){
+            CoreAvailablity(currentProcess);
+        }
+        else if(currentProcess.subProcessName.equals("SSD")){
+            SSDRequest(currentProcess);
+        }
+        else if(currentProcess.subProcessName.equals("OUTPUT")||currentProcess.subProcessName.equals("INPUT")){
+            inputOutputRequest(currentProcess);
+        }
+        else{
+            System.out.println("Process "+ currentProcess.ProcessNumber+" is terminaated at "+time+"ms");
+        System.out.println("Current number of busy cores: "+busyCores);
+            System.out.println("Ready Queue has Processes ");
+            System.out.println("====================");
+        }
 //
-//
-//    }
+}
+    }
 
-//    void ArrivleTime(process arrivePro){
-//
-//        System.out.println("Process "+arrivePro.processNum+" starts at t="+arrivePro.timeRequest+"ms");
-//        time=arrivePro.timeRequest;
-//        int busyCores=0;
-//        String processInReadyQueue="";
-//        for(int i =0; i<CoreList.size(); i++){
-//            if(CoreList.get(i).availabilty==false){
-//                busyCores++;
-//            }
-//        }
-//        System.out.println("Current number of busy cores: "+busyCores);
-//        for(int j=0; j<coreReadyQueue.size();j++){
-//            processInReadyQueue+=Integer.toString(coreReadyQueue.get(j).processNum);
+    void ArrivleTime(SubProcess arrivePro){
+
+        System.out.println("Process "+arrivePro.ProcessNumber+" starts at t="+arrivePro.getTimeRequest()+"ms");
+        time+=arrivePro.timeRequest;
+        String processInReadyQueue="";
+        System.out.println("Current number of busy cores: "+busyCores);
+//        for(int j=0; j<CoreList.size();j++){
+//            processInReadyQueue+=Integer.toString(.get(j).processNum);
 //            processInReadyQueue+=",";
 //
 //        }
-//        System.out.println("Ready Queue has Processes "+ processInReadyQueue);
-//        System.out.println("====================");
-//
-//
-//    }
-//    public void CoreAvailablity(process CoreProcessReady1){
-//
-//        if(numberOfCores>0){
-//            numberOfCores--;
-//            coreComplete(CoreProcessReady1);
-//        }
-//        else{
-//            CoreProcessReady1.ProcessState="Ready";
-//            coreReadyQueue.add(CoreProcessReady1);
-//        }
-//
-//    }
-//
-//    void coreComplete(process CoreProcessReady){
-//            CoreProcessReady.ProcessState="Ready";
-//            coreReadyQueue.add(CoreProcessReady);
-//            if(!coreReadyQueue.isEmpty()){
-//                process tempProcess=coreReadyQueue.remove(0);
-//                tempProcess.ProcessState="Running";
-//                //System.out.println("POP Out List "+tempProcess.timeRequest);
-//                time+=tempProcess.timeRequest;
-//                numberOfCores++;
-//            }
-//
-//
-//    }
-//    void inputOutputRequest(process inputOutputPro){
-//        System.out.println("inputOutputRequest Function");
-//    }
-//    void SSDRequest(process SSDPro){
-//        System.out.println("SSDRequest Function");
-//        if(numberOFSSD>0){
-//            numberOFSSD--;
-//            ssdCompletionEvent(SSDPro);
-//        }
-//        else{
-//            SSDQueue.add(SSDPro);
-//        }
-//    }
-//    void ssdCompletionEvent(process newSSD){
-//        SSDQueue.add(newSSD);
-//        while(!SSDQueue.isEmpty()){
-//            process tempProcess=SSDQueue.remove(0);
-//            time+=tempProcess.timeRequest;
-//            numberOFSSD++;
-//        }
-//    }
+        System.out.println("Ready Queue has Processes "+ processInReadyQueue);
+        System.out.println("====================");
+
+
+    }
+    public void CoreAvailablity(SubProcess CoreProcessReady1){
+
+        if(numberOfCores>0){
+            numberOfCores--;
+            busyCores++;
+            coreComplete(CoreProcessReady1);
+        }
+        else{
+            CoreProcessReady1.ProcessState="Ready";
+            CoreReadyQueue.add(CoreProcessReady1);
+        }
+
+
+    }
+
+    void coreComplete(SubProcess CoreProcessReady){
+            CoreProcessReady.ProcessState="Ready";
+            CoreReadyQueue.add(CoreProcessReady);
+            if(! CoreReadyQueue.isEmpty()){
+                SubProcess tempProcess= CoreReadyQueue.remove(0);
+                tempProcess.ProcessState="Running";
+                time+=tempProcess.getTimeRequest();
+                numberOfCores++;
+                busyCores--;
+            }
+
+
+    }
+    void inputOutputRequest(SubProcess inputOutputPro){
+        time+=inputOutputPro.getTimeRequest();
+    }
+    void SSDRequest(SubProcess SSDPro){
+        if(numberOFSSD>0){
+            numberOFSSD--;
+            ssdCompletionEvent(SSDPro);
+        }
+        else{
+            SSDQueue.add(SSDPro);
+        }
+    }
+    void ssdCompletionEvent(SubProcess newSSD){
+        SSDQueue.add(newSSD);
+        while(!SSDQueue.isEmpty()){
+            SubProcess tempProcess=SSDQueue.remove(0);
+            time+=tempProcess.timeRequest;
+            numberOFSSD++;
+        }
+    }
 //    void lockRequest(process LockPro){
 //        System.out.println("lockRequest Function");
 //    }

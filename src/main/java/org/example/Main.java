@@ -18,6 +18,12 @@ public class Main {
                 text.trim();
                 split1 = text.split(" ", 5);
                 if (split1[0].equals("NCORES")) {
+                    int incrementIter=0;
+                    while(incrementIter<Integer.parseInt(split1[split1.length - 1])){
+                        stateObj core=new stateObj();
+                        beginProcess.CoreList.add(core);
+                        incrementIter++;
+                    }
                     beginProcess.numberOfCores = (Integer.parseInt(split1[split1.length - 1]));
                     continue;
                 } else if (split1[0].equals("START")) {
@@ -48,20 +54,24 @@ public class Main {
                     SubProcess currentProcess = new SubProcess();
                     currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
                     currentProcess.subProcessName = split1[0];
+                    currentProcess.ProcessNumber=count;
                     beginProcess.ProcessList.get(count).ProcessEvents.add(currentProcess);
                 } else if (split1[0].equals("SSD")) {
                     SubProcess currentProcess = new SubProcess();
                     currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
                     currentProcess.subProcessName = split1[0];
+                    currentProcess.ProcessNumber=count;
                     beginProcess.ProcessList.get(count).ProcessEvents.add(currentProcess);
                 } else if (split1[0].equals("OUTPUT") || split1[0].equals("INPUT")) {
                     SubProcess currentProcess = new SubProcess();
                     currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
                     currentProcess.subProcessName = split1[0];
+                    currentProcess.ProcessNumber=count;
                     beginProcess.ProcessList.get(count).ProcessEvents.add(currentProcess);
                 } else if (split1[0].equals("END")) {
                     SubProcess currentProcess = new SubProcess();
                     currentProcess.subProcessName = split1[0];
+                    currentProcess.ProcessNumber=count;
                     beginProcess.ProcessList.get(count).ProcessEvents.add(currentProcess);
                 }
             }
@@ -71,10 +81,11 @@ public class Main {
         }
 
         beginProcess.creatingEventList();
+        beginProcess.RoutineLoop();
 //        beginProcess.creatingEventList();
-//        for(int i=0; i<beginProcess.subProPointers.size();i++){
-//            System.out.println(beginProcess.subProPointers.get(i).next());
-//      System.out.println(beginProcess.subProPointers.get(i).timeRequest);
+//        for(int i=0; i<beginProcess.eventQueue.size();i++){
+//            System.out.println(beginProcess.eventQueue.get(i).getSubProcessName());
+//            System.out.println(beginProcess.eventQueue.get(i).getTimeRequest());
 //            System.out.println("=======================");
 //        }
 //        System.out.println("Done");
