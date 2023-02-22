@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="createEventList fucntion working">
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="reverting Back to Bare bones approuch(Everything working)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/read.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/stateObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/stateObj.java" afterDir="false" />
     </list>
     <list id="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" name="Changes by uboh" comment="Changes by uboh">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
@@ -40,22 +37,13 @@
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
         <range start1="5" end1="6" start2="4" end2="4" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="9" end1="9" start2="7" end2="8" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="10" end1="10" start2="9" end2="10" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="14" end1="14" start2="14" end2="16" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="17" end1="50" start2="19" end2="38" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="51" end1="52" start2="39" end2="42" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="58" end1="60" start2="48" end2="48" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="62" end1="63" start2="50" end2="51" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="66" end1="70" start2="54" end2="59" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="71" end1="81" start2="60" end2="60" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="83" end1="100" start2="62" end2="88" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="101" end1="103" start2="89" end2="91" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="104" end1="110" start2="92" end2="97" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="115" end1="118" start2="102" end2="105" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="120" end1="120" start2="107" end2="123" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="121" end1="173" start2="124" end2="177" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="176" end1="176" start2="180" end2="200" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="20" end1="21" start2="18" end2="18" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="41" end1="42" start2="38" end2="42" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="48" end1="50" start2="48" end2="48" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="57" end1="59" start2="55" end2="56" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="60" end1="61" start2="57" end2="60" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="95" end1="100" start2="94" end2="94" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="156" end1="156" start2="150" end2="151" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -68,12 +56,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "S:/TimeSharingProcess"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;S:/TimeSharingProcess&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="S:\TimeSharingProcess" />
@@ -259,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676148306182</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="reverting Back to Bare bones approuch(Everything working)">
+      <created>1676588456844</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1676588456844</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,6 +288,73 @@
     <MESSAGE value="implemented the SubArrayPointers(PointerList)" />
     <MESSAGE value="createEventList fucntion working" />
     <MESSAGE value="Changes by uboh" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by uboh" />
+    <MESSAGE value="reverting Back to Bare bones approuch(Everything working)" />
+    <option name="LAST_COMMIT_MESSAGE" value="reverting Back to Bare bones approuch(Everything working)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

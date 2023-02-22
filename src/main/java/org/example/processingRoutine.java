@@ -18,7 +18,6 @@ public class processingRoutine {
     ArrayList<SubProcess> SSDQueue =new ArrayList<>();
     ArrayList<process> ProcessList = new ArrayList<>();
     ArrayList<ArrayList>subProPointers = new ArrayList<>();
-
     // modify to pick the correct process
 //    SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime){
 //        SubProcess lowestTImeValueSubProcess = new SubProcess();
@@ -39,15 +38,16 @@ public class processingRoutine {
 //        return lowestTImeValueSubProcess;
 //    }
 
-    void creatingEventList(){
+    void creatingEventList() {
+        int intsubpointterIndex=0;
+        // check if first start has been found
+        boolean firstStartFound = false;
         // local time
         int loadingTime = 0;
         // initialize list of pointers
         int[] subProIters = new int[ProcessList.size()];
         // set all initial pointer valuse to zero
         Arrays.fill(subProIters, 0);
-        // print all subPorcessess using pointer array
-
         // find total number of executions
         int totalSubProcessesLen = 0;
         for (int processIdx = 0; processIdx < ProcessList.size(); processIdx++) {
@@ -55,10 +55,11 @@ public class processingRoutine {
         }
 
         for (int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++) {
-
-            SubProcess lowestTimeValueProcess = ProcessList.get(subProIters[0]).ProcessEvents.remove(0);
+            SubProcess lowestTimeValueProcess = ProcessList.get(intsubpointterIndex).ProcessEvents.remove(subProIters[intsubpointterIndex]);
             eventQueue.add(lowestTimeValueProcess);
-
+            if(ProcessList.get(intsubpointterIndex).ProcessEvents.isEmpty()){
+                intsubpointterIndex++;
+            }
         }
     }
 
@@ -93,11 +94,6 @@ public class processingRoutine {
         time+=arrivePro.timeRequest;
         String processInReadyQueue="";
         System.out.println("Current number of busy cores: "+busyCores);
-//        for(int j=0; j<CoreList.size();j++){
-//            processInReadyQueue+=Integer.toString(.get(j).processNum);
-//            processInReadyQueue+=",";
-//
-//        }
         System.out.println("Ready Queue has Processes "+ processInReadyQueue);
         System.out.println("====================");
 
