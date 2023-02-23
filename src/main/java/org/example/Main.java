@@ -83,9 +83,13 @@ public class Main {
         beginProcess.creatingEventList();
         beginProcess.RoutineLoop();
 //        beginProcess.creatingEventList();
+        //System.out.println(beginProcess.eventQueue.);
+//        while(!beginProcess.eventQueue.isEmpty()){
+//            System.out.println(beginProcess.eventQueue.remove().CompletionTime);
+//        }
 //        for(int i=0; i<beginProcess.eventQueue.size();i++){
-//            System.out.println(beginProcess.eventQueue.get(i).getSubProcessName());
-//            System.out.println(beginProcess.eventQueue.get(i).getTimeRequest());
+//            System.out.println(beginProcess.eventQueue.poll().getSubProcessName());
+//            System.out.println(beginProcess.eventQueue.poll().CompletionTime);
 //            System.out.println("=======================");
 //        }
 //        System.out.println("Done");

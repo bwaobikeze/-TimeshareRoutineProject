@@ -6,6 +6,7 @@ public class SubProcess {
     int ProcessNumber;
     String ProcessState;
     int CoreNumberAvailable;
+    int CompletionTime;
     int getTimeRequest(){
         return timeRequest;
     }

@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="reverting Back to Bare bones approuch(Everything working)">
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="reverting Back to Bare bones approuch(Printing of two Process works)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/read.txt" afterDir="false" />
     </list>
@@ -36,14 +39,26 @@
     <file path="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java">
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="5" end1="6" start2="4" end2="4" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="20" end1="21" start2="18" end2="18" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="41" end1="42" start2="38" end2="42" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="48" end1="50" start2="48" end2="48" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="57" end1="59" start2="55" end2="56" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="60" end1="61" start2="57" end2="60" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="95" end1="100" start2="94" end2="94" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="156" end1="156" start2="150" end2="151" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="5" end1="6" start2="4" end2="6" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="8" end1="8" start2="8" end2="14" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="15" end1="16" start2="21" end2="22" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="20" end1="20" start2="26" end2="27" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="21" end1="25" start2="28" end2="38" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="33" end1="33" start2="46" end2="47" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="36" end1="39" start2="50" end2="53" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="57" end1="58" start2="71" end2="81" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="59" end1="62" start2="82" end2="85" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="67" end1="68" start2="90" end2="92" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="81" end1="84" start2="105" end2="109" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="89" end1="89" start2="114" end2="115" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="91" end1="92" start2="117" end2="118" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="93" end1="95" start2="119" end2="119" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="96" end1="97" start2="120" end2="121" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="109" end1="110" start2="133" end2="134" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="117" end1="118" start2="141" end2="142" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="121" end1="123" start2="145" end2="146" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="145" end1="146" start2="168" end2="168" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="152" end1="152" start2="174" end2="175" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -254,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676588456844</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="reverting Back to Bare bones approuch(Printing of two Process works)">
+      <created>1677047668733</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1677047668733</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,7 +311,8 @@
     <MESSAGE value="createEventList fucntion working" />
     <MESSAGE value="Changes by uboh" />
     <MESSAGE value="reverting Back to Bare bones approuch(Everything working)" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverting Back to Bare bones approuch(Everything working)" />
+    <MESSAGE value="reverting Back to Bare bones approuch(Printing of two Process works)" />
+    <option name="LAST_COMMIT_MESSAGE" value="reverting Back to Bare bones approuch(Printing of two Process works)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
