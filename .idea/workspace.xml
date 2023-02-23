@@ -7,8 +7,6 @@
     <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="reverting Back to Bare bones approuch(Printing of two Process works)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/read.txt" afterDir="false" />
     </list>
@@ -40,25 +38,11 @@
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
         <range start1="5" end1="6" start2="4" end2="6" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="8" end1="8" start2="8" end2="14" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="15" end1="16" start2="21" end2="22" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="20" end1="20" start2="26" end2="27" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="21" end1="25" start2="28" end2="38" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="33" end1="33" start2="46" end2="47" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="36" end1="39" start2="50" end2="53" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="57" end1="58" start2="71" end2="81" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="59" end1="62" start2="82" end2="85" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="67" end1="68" start2="90" end2="92" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="81" end1="84" start2="105" end2="109" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="89" end1="89" start2="114" end2="115" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="91" end1="92" start2="117" end2="118" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="93" end1="95" start2="119" end2="119" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="96" end1="97" start2="120" end2="121" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="109" end1="110" start2="133" end2="134" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="117" end1="118" start2="141" end2="142" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="121" end1="123" start2="145" end2="146" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="145" end1="146" start2="168" end2="168" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="152" end1="152" start2="174" end2="175" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="37" end1="37" start2="37" end2="38" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="38" end1="38" start2="39" end2="47" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="51" end1="51" start2="60" end2="61" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="74" end1="74" start2="84" end2="88" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="174" end1="174" start2="188" end2="189" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -276,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677047668733</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="reverting Back to Bare bones approuch(Printing of two Process works)">
+      <created>1677133742387</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1677133742387</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,64 +309,104 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>28</line>
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>29</line>
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>30</line>
-          <option name="timeStamp" value="24" />
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>31</line>
-          <option name="timeStamp" value="25" />
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>32</line>
-          <option name="timeStamp" value="26" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>33</line>
-          <option name="timeStamp" value="27" />
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>34</line>
-          <option name="timeStamp" value="28" />
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>35</line>
-          <option name="timeStamp" value="29" />
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>36</line>
-          <option name="timeStamp" value="30" />
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>37</line>
-          <option name="timeStamp" value="31" />
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

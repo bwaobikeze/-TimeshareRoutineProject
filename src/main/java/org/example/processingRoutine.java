@@ -35,6 +35,15 @@ public class processingRoutine {
             if(subProcessIters.length==1){
                 lowestTImeValueSubProcess=ProcessList.get(processIdx).ProcessEvents.remove(subProcessIters[processIdx]);
                  lowestTImeValueSubProcess.CompletionTime= loadingTime + lowestTImeValueSubProcess.timeRequest;
+                return lowestTImeValueSubProcess;
+            }
+            else{
+                currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
+                  completionTIme = loadingTime + currentSubProcess.timeRequest;
+                if(completionTIme < loadingTime + lowestTImeValueSubProcess.timeRequest||processIdx==0){
+                    currentSubProcess.CompletionTime=completionTIme;
+                    lowestTImeValueSubProcess = currentSubProcess;
+                }
             }
 //            if(subProcessIters[processIdx] < 0)
 //                continue;
@@ -49,6 +58,7 @@ public class processingRoutine {
 //                }
 //            }
         }
+
         return lowestTImeValueSubProcess;
     }
 
@@ -72,6 +82,10 @@ public class processingRoutine {
 //            SubProcess lowestTimeValueProcess = ProcessList.get(intsubpointterIndex).ProcessEvents.remove(subProIters[intsubpointterIndex]);
             SubProcess lowestTimeValueProcess=getLowestTimeValueSubProcess(subProIters,loadingTime);
             loadingTime=lowestTimeValueProcess.CompletionTime;
+            if(subProIters[lowestTimeValueProcess.ProcessNumber]<ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
+                subProIters[lowestTimeValueProcess.ProcessNumber]++;
+            }
+            //subProIters[lowestTimeValueProcess.ProcessNumber]++;
 //          if(lowestTimeValueProcess.subProcessName.equals("START")){
 //              if(firstStartFound==false){
 //                  loadingTime=lowestTimeValueProcess.CompletionTime;

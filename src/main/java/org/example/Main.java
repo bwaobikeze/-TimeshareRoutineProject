@@ -36,7 +36,6 @@ public class Main {
                         createNew.ProcessEvents.add(currentProcess);
                         beginProcess.ProcessList.add(createNew);
                         seenStartOnce++;
-                        continue;
                     } else {
                         process createNew = new process();
                         count++;
@@ -80,18 +79,23 @@ public class Main {
             System.out.println(e.fillInStackTrace());
         }
 
-        beginProcess.creatingEventList();
-        beginProcess.RoutineLoop();
+        //beginProcess.creatingEventList();
+        //beginProcess.RoutineLoop();
 //        beginProcess.creatingEventList();
         //System.out.println(beginProcess.eventQueue.);
 //        while(!beginProcess.eventQueue.isEmpty()){
 //            System.out.println(beginProcess.eventQueue.remove().CompletionTime);
 //        }
-//        for(int i=0; i<beginProcess.eventQueue.size();i++){
-//            System.out.println(beginProcess.eventQueue.poll().getSubProcessName());
-//            System.out.println(beginProcess.eventQueue.poll().CompletionTime);
-//            System.out.println("=======================");
-//        }
+        for(int i=0; i<beginProcess.ProcessList.size();i++){
+            System.out.println("Process #"+beginProcess.ProcessList.get(i).ProcessNum);
+            for (int j=0; j<beginProcess.ProcessList.get(i).ProcessEvents.size();j++){
+                System.out.println("Event Name: "+beginProcess.ProcessList.get(i).ProcessEvents.get(j).getSubProcessName());
+                System.out.println("Event Time Request: "+beginProcess.ProcessList.get(i).ProcessEvents.get(j).getTimeRequest());
+                System.out.println("Event Belongs to Process #: "+beginProcess.ProcessList.get(i).ProcessEvents.get(j).ProcessNumber);
+                System.out.println("=======================");
+            }
+            System.out.println("///////////////////////////////////////////");
+        }
 //        System.out.println("Done");
 //        System.out.println(beginProcess.ProcessList.get(0).ProcessEvents.get(0).subProcessName);
 //        System.out.println(beginProcess.ProcessList.get(0).ProcessEvents.get(0).timeRequest);
