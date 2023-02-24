@@ -37,13 +37,8 @@
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
         <range start1="5" end1="6" start2="4" end2="6" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="28" end1="29" start2="28" end2="29" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="30" end1="32" start2="30" end2="31" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="40" end1="43" start2="39" end2="46" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="70" end1="70" start2="73" end2="74" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="82" end1="86" start2="86" end2="109" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="95" end1="96" start2="118" end2="118" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="188" end1="188" start2="210" end2="211" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="87" end1="108" start2="87" end2="114" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="210" end1="210" start2="216" end2="217" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -275,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677177523273</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="working on implemnting to process(half working)">
+      <created>1677219107759</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1677219107760</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -324,7 +326,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>104</line>
+          <line>109</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -354,13 +356,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>105</line>
+          <line>110</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>106</line>
+          <line>111</line>
           <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

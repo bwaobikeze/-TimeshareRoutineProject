@@ -85,27 +85,33 @@ public class processingRoutine {
         for (int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++) {
 //            SubProcess lowestTimeValueProcess = ProcessList.get(intsubpointterIndex).ProcessEvents.remove(subProIters[intsubpointterIndex]);
             SubProcess lowestTimeValueProcess=getLowestTimeValueSubProcess(subProIters,loadingTime,FirstTime);
-            if(lowestTimeValueProcess.subProcessName.equals("START")){
-                if(firstStartFound==false){
-                    loadingTime=lowestTimeValueProcess.CompletionTime;
-                    eventQueue.add(lowestTimeValueProcess);
-                    if(subProIters[lowestTimeValueProcess.ProcessNumber]<ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
-                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
-                    }
-                    firstStartFound=true;
-                }
-                else {
-                    eventQueue.add(lowestTimeValueProcess);
-                    if(subProIters[lowestTimeValueProcess.ProcessNumber]<ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
-                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
-                    }
-                }
+            //logic for one process
+            if(subProIters.length==1){
+                loadingTime = lowestTimeValueProcess.CompletionTime;
+                eventQueue.add(lowestTimeValueProcess);
             }
             else {
-                loadingTime = lowestTimeValueProcess.CompletionTime;
-                if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
-                    subProIters[lowestTimeValueProcess.ProcessNumber]++;
-                    eventQueue.add(lowestTimeValueProcess);
+                //Logic for multiple Process
+                if (lowestTimeValueProcess.subProcessName.equals("START")) {
+                    if (firstStartFound == false) {
+                        loadingTime = lowestTimeValueProcess.CompletionTime;
+                        eventQueue.add(lowestTimeValueProcess);
+                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                        }
+                        firstStartFound = true;
+                    } else {
+                        eventQueue.add(lowestTimeValueProcess);
+                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                        }
+                    }
+                } else {
+                    loadingTime = lowestTimeValueProcess.CompletionTime;
+                    if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                        eventQueue.add(lowestTimeValueProcess);
+                    }
                 }
             }
             //subProIters[lowestTimeValueProcess.ProcessNumber]++;

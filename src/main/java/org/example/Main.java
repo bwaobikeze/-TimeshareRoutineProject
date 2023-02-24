@@ -80,7 +80,7 @@ public class Main {
         }
 
         beginProcess.creatingEventList();
-        //beginProcess.RoutineLoop();
+        beginProcess.RoutineLoop();
 //        beginProcess.creatingEventList();
         //System.out.println(beginProcess.eventQueue.);
 //        while(!beginProcess.eventQueue.isEmpty()){
