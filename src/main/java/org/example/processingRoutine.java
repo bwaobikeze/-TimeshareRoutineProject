@@ -23,7 +23,7 @@ public class processingRoutine {
     ArrayList <SubProcess> CoreReadyQueue = new ArrayList<>();
     ArrayList<SubProcess> SSDQueue =new ArrayList<>();
     ArrayList<process> ProcessList = new ArrayList<>();
-    ArrayList<ArrayList>subProPointers = new ArrayList<>();
+    ArrayList<SubProcess> LockRequestList = new ArrayList<>();
 
     // modify to pick the correct process
     SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime,int firstCheck){
@@ -37,10 +37,11 @@ public class processingRoutine {
                 return lowestTImeValueSubProcess;
             }
             else{
+                if(subProcessIters[processIdx]==-1){
+                    continue;
+                }
                 //accessing the first element in the specfic proceess indicated by ProcessIDX and storing it ""currentSubProcess" varaiable
                 SubProcess currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
-                //adding the current Subprocess time request to the loading time(i.e global time) and storing it
-                // in the "completionTime" variable.
                   // we are checking if the completion time is less then the current subProcess+loading time
                 if(loadingTime + currentSubProcess.timeRequest <completionTIme ){
                     completionTIme=loadingTime + currentSubProcess.timeRequest;
@@ -111,6 +112,9 @@ public class processingRoutine {
                     if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
                         subProIters[lowestTimeValueProcess.ProcessNumber]++;
                         eventQueue.add(lowestTimeValueProcess);
+                    }
+                    if(subProIters[lowestTimeValueProcess.ProcessNumber]==ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
+                        subProIters[lowestTimeValueProcess.ProcessNumber]=-1;
                     }
                 }
             }

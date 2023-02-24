@@ -67,7 +67,14 @@ public class Main {
                     currentProcess.subProcessName = split1[0];
                     currentProcess.ProcessNumber=count;
                     beginProcess.ProcessList.get(count).ProcessEvents.add(currentProcess);
-                } else if (split1[0].equals("END")) {
+                } else if(split1[0].equals("LOCK")||split1[0].equals("UNLOCK")){
+                    SubProcess currentProcess = new SubProcess();
+                    currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
+                    currentProcess.subProcessName = split1[0];
+                    currentProcess.ProcessNumber=count;
+                    beginProcess.LockRequestList.add(currentProcess);
+                }
+                else if (split1[0].equals("END")) {
                     SubProcess currentProcess = new SubProcess();
                     currentProcess.subProcessName = split1[0];
                     currentProcess.ProcessNumber=count;
