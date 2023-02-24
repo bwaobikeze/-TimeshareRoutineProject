@@ -26,10 +26,9 @@ public class processingRoutine {
     ArrayList<ArrayList>subProPointers = new ArrayList<>();
 
     // modify to pick the correct process
-    SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime){
+    SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime,int firstCheck){
         SubProcess lowestTImeValueSubProcess = new SubProcess();
-        SubProcess currentSubProcess;
-        int completionTIme;
+        int completionTIme=Integer.MAX_VALUE;
         // check for index of -1
         for(int processIdx = 0; processIdx < subProcessIters.length; processIdx++){
             if(subProcessIters.length==1){
@@ -38,9 +37,13 @@ public class processingRoutine {
                 return lowestTImeValueSubProcess;
             }
             else{
-                currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
-                  completionTIme = loadingTime + currentSubProcess.timeRequest;
-                if(completionTIme < loadingTime + lowestTImeValueSubProcess.timeRequest||processIdx==0){
+                //accessing the first element in the specfic proceess indicated by ProcessIDX and storing it ""currentSubProcess" varaiable
+                SubProcess currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
+                //adding the current Subprocess time request to the loading time(i.e global time) and storing it
+                // in the "completionTime" variable.
+                  // we are checking if the completion time is less then the current subProcess+loading time
+                if(loadingTime + currentSubProcess.timeRequest <completionTIme ){
+                    completionTIme=loadingTime + currentSubProcess.timeRequest;
                     currentSubProcess.CompletionTime=completionTIme;
                     lowestTImeValueSubProcess = currentSubProcess;
                 }
@@ -68,6 +71,7 @@ public class processingRoutine {
         boolean firstStartFound = false;
         // local time
         int loadingTime = 0;
+        int FirstTime=0;
         // initialize list of pointers
         int[] subProIters = new int[ProcessList.size()];
         // set all initial pointer valuse to zero
@@ -80,10 +84,29 @@ public class processingRoutine {
 
         for (int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++) {
 //            SubProcess lowestTimeValueProcess = ProcessList.get(intsubpointterIndex).ProcessEvents.remove(subProIters[intsubpointterIndex]);
-            SubProcess lowestTimeValueProcess=getLowestTimeValueSubProcess(subProIters,loadingTime);
-            loadingTime=lowestTimeValueProcess.CompletionTime;
-            if(subProIters[lowestTimeValueProcess.ProcessNumber]<ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
-                subProIters[lowestTimeValueProcess.ProcessNumber]++;
+            SubProcess lowestTimeValueProcess=getLowestTimeValueSubProcess(subProIters,loadingTime,FirstTime);
+            if(lowestTimeValueProcess.subProcessName.equals("START")){
+                if(firstStartFound==false){
+                    loadingTime=lowestTimeValueProcess.CompletionTime;
+                    eventQueue.add(lowestTimeValueProcess);
+                    if(subProIters[lowestTimeValueProcess.ProcessNumber]<ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
+                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                    }
+                    firstStartFound=true;
+                }
+                else {
+                    eventQueue.add(lowestTimeValueProcess);
+                    if(subProIters[lowestTimeValueProcess.ProcessNumber]<ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
+                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                    }
+                }
+            }
+            else {
+                loadingTime = lowestTimeValueProcess.CompletionTime;
+                if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+                    subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                    eventQueue.add(lowestTimeValueProcess);
+                }
             }
             //subProIters[lowestTimeValueProcess.ProcessNumber]++;
 //          if(lowestTimeValueProcess.subProcessName.equals("START")){
@@ -93,7 +116,6 @@ public class processingRoutine {
 //                  firstStartFound=true;
 //              }
 //          }
-            eventQueue.add(lowestTimeValueProcess);
 //            if(ProcessList.get(intsubpointterIndex).ProcessEvents.isEmpty()){
 //                intsubpointterIndex++;
 //            }
