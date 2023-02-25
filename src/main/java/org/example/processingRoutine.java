@@ -6,18 +6,16 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class processingRoutine {
-    Comparator<SubProcess> subProcessComparator = new Comparator<SubProcess>() {
-        @Override
-        public int compare(SubProcess o1, SubProcess o2) {
-            return o1.CompletionTime- o2.CompletionTime;
-        }
-    };
+//    Comparator<SubProcess> subProcessComparator = new Comparator<SubProcess>() {
+//        @Override
+//        public int compare(SubProcess o1, SubProcess o2) {
+//            return o1.CompletionTime- o2.CompletionTime;
+//        }
+//    };
     int time=0;
     int busyCores=0;
     int numberOfCores;
     int numberOFSSD=1;
-    stateObj SSD= new stateObj();
-    stateObj IO = new stateObj();
     ArrayList<stateObj>CoreList= new ArrayList<>();
     ArrayList<SubProcess> eventQueue= new ArrayList<>();
     ArrayList <SubProcess> CoreReadyQueue = new ArrayList<>();
@@ -26,16 +24,21 @@ public class processingRoutine {
     ArrayList<SubProcess> LockRequestList = new ArrayList<>();
     ArrayList<stateObj> SixtyFourLocks = new ArrayList<>();
 
+    /********************************************************************************************
+     * This Function getLowestTimeValueSubProcess() return the process request that will be entered into the event queue first
+     *****************************************************************************************************/
     // modify to pick the correct process
     SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime,int firstCheck){
         SubProcess lowestTImeValueSubProcess = new SubProcess();
         int completionTIme=Integer.MAX_VALUE;
         for(int processIdx = 0; processIdx < subProcessIters.length; processIdx++){
+            //Logic for 1 Process
             if(subProcessIters.length==1){
                 lowestTImeValueSubProcess=ProcessList.get(processIdx).ProcessEvents.remove(subProcessIters[processIdx]);
                  lowestTImeValueSubProcess.CompletionTime= loadingTime + lowestTImeValueSubProcess.timeRequest;
                 return lowestTImeValueSubProcess;
             }
+            //Logic for multiple Process
             else{
                 // check for index of -1
                 if(subProcessIters[processIdx]==-1){
@@ -55,6 +58,11 @@ public class processingRoutine {
         return lowestTImeValueSubProcess;
     }
 
+
+    /********************************************************************************************
+    * This Function creatingEventList() combines the event list of each process read in and
+    * creates a combined priority queue(which priority is based on the calculated arrival time of each event request)  to run the Process routine System
+     *****************************************************************************************************/
     void creatingEventList() {
         int intsubpointterIndex=0;
         // check if first start has been found
@@ -114,7 +122,9 @@ public class processingRoutine {
             }
         }
     }
-
+    /********************************************************************************************
+     * This Function RoutineLoop() Runs the main system routine and logs all of the process status updates
+     *****************************************************************************************************/
     void RoutineLoop(){
         while(!eventQueue.isEmpty()){
             SubProcess currentProcess=eventQueue.remove(0);
@@ -123,7 +133,7 @@ public class processingRoutine {
 //                lockRequest(LockRequestList.remove(0));
 //            }
         if(currentProcess.subProcessName.equals("START")){
-            ArrivleTime(currentProcess);
+            ArrivalTime(currentProcess);
         }
         else if(currentProcess.subProcessName.equals("CPU")){
             CoreAvailablity(currentProcess);
@@ -144,9 +154,11 @@ public class processingRoutine {
 //
 }
     }
+    /********************************************************************************************
+     * This Function ArrivleTime() Prints the Arrival status update of a new Process
+     *****************************************************************************************************/
 
-
-    void ArrivleTime(SubProcess arrivePro){
+    void ArrivalTime(SubProcess arrivePro){
         ProcessList.get(arrivePro.ProcessNumber).ProcessState="READY";
         System.out.println("Process "+arrivePro.ProcessNumber+" starts at t="+arrivePro.getTimeRequest()+"ms");
         System.out.println("Current number of busy cores: "+busyCores);
@@ -155,6 +167,9 @@ public class processingRoutine {
 
 
     }
+    /********************************************************************************************
+     * This Function CoreAvailablity() checks to see if there is a core available
+     *****************************************************************************************************/
     public void CoreAvailablity(SubProcess CoreProcessReady1){
 
         if(numberOfCores>0){
@@ -169,22 +184,32 @@ public class processingRoutine {
 
 
     }
-
+    /********************************************************************************************
+     * This Function CoreComplete() computes the core completion task(adding the requested time to the global clock) after CoreAvailablity() checks and there
+     * is a available core
+     *****************************************************************************************************/
     void coreComplete(SubProcess CoreProcessReady){
             //CoreProcessReady.ProcessState="Ready";
             CoreReadyQueue.add(CoreProcessReady);
             if(! CoreReadyQueue.isEmpty()){
                 SubProcess tempProcess= CoreReadyQueue.remove(0);
                 //tempProcess.ProcessState="Running";
+                //time+=CoreProcessReady.getTimeRequest();
                 numberOfCores++;
                 busyCores--;
             }
 
 
     }
+    /********************************************************************************************
+     * This Function inputOutputRequest() adds input and output request to the global time.
+     *****************************************************************************************************/
     void inputOutputRequest(SubProcess inputOutputPro){
         //time+=inputOutputPro.getTimeRequest();
     }
+    /********************************************************************************************
+     * his Function SSDRequest() checks to see if the SSD is available
+     *****************************************************************************************************/
     void SSDRequest(SubProcess SSDPro){
         if(numberOFSSD>0){
             numberOFSSD--;
@@ -194,6 +219,10 @@ public class processingRoutine {
             SSDQueue.add(SSDPro);
         }
     }
+    /********************************************************************************************
+     * This Function ssdCompletionEvent() computes the SSD completion task(adding the requested time to the global clock) after SSDRequest() checks and there
+     * is a available SSD
+     *****************************************************************************************************/
     void ssdCompletionEvent(SubProcess newSSD){
         SSDQueue.add(newSSD);
         while(!SSDQueue.isEmpty()){

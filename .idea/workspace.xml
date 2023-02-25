@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="working on implemnting to process(half working)">
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="working on implemnting to process(added Locks)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/read.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/stateObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/stateObj.java" afterDir="false" />
     </list>
     <list id="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" name="Changes by uboh" comment="Changes by uboh">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
@@ -38,17 +35,23 @@
     <file path="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java">
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="5" end1="6" start2="4" end2="6" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="21" end1="22" start2="21" end2="22" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="26" end1="26" start2="26" end2="27" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="31" end1="32" start2="32" end2="32" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="39" end1="39" start2="39" end2="40" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="51" end1="63" start2="52" end2="52" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="84" end1="84" start2="73" end2="78" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="120" end1="131" start2="114" end2="114" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="136" end1="138" start2="119" end2="124" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="199" end1="200" start2="185" end2="186" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="217" end1="220" start2="203" end2="228" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="5" end1="6" start2="4" end2="5" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="18" end1="20" start2="17" end2="17" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="28" end1="28" start2="25" end2="28" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="33" end1="33" start2="33" end2="34" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="38" end1="38" start2="39" end2="40" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="57" end1="57" start2="59" end2="64" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="116" end1="117" start2="123" end2="126" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="125" end1="126" start2="134" end2="135" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="146" end1="146" start2="155" end2="158" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="147" end1="149" start2="159" end2="160" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="157" end1="157" start2="168" end2="171" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="171" end1="172" start2="185" end2="189" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="178" end1="178" start2="195" end2="196" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="184" end1="184" start2="202" end2="205" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="187" end1="187" start2="208" end2="211" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="196" end1="196" start2="220" end2="224" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="203" end1="206" start2="231" end2="256" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -301,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677278405729</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="working on implemnting to process(added Locks)">
+      <created>1677360135128</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1677360135128</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,6 +348,7 @@
     <MESSAGE value="reverting Back to Bare bones approuch(Everything working)" />
     <MESSAGE value="reverting Back to Bare bones approuch(Printing of two Process works)" />
     <MESSAGE value="working on implemnting to process(half working)" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on implemnting to process(half working)" />
+    <MESSAGE value="working on implemnting to process(added Locks)" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on implemnting to process(added Locks)" />
   </component>
 </project>
