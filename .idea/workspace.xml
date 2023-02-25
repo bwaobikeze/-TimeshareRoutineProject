@@ -7,8 +7,9 @@
     <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="working on implemnting to process(half working)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/read.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/stateObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/stateObj.java" afterDir="false" />
     </list>
     <list id="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" name="Changes by uboh" comment="Changes by uboh">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
@@ -38,11 +39,16 @@
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
         <range start1="5" end1="6" start2="4" end2="6" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="25" end1="26" start2="25" end2="26" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="39" end1="39" start2="39" end2="42" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="41" end1="43" start2="44" end2="44" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="114" end1="114" start2="115" end2="118" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="216" end1="216" start2="220" end2="221" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="21" end1="22" start2="21" end2="22" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="26" end1="26" start2="26" end2="27" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="31" end1="32" start2="32" end2="32" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="39" end1="39" start2="39" end2="40" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="51" end1="63" start2="52" end2="52" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="84" end1="84" start2="73" end2="78" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="120" end1="131" start2="114" end2="114" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="136" end1="138" start2="119" end2="124" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="199" end1="200" start2="185" end2="186" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="217" end1="220" start2="203" end2="228" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -288,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677223253980</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="working on implemnting to process(half working)">
+      <created>1677278405729</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1677278405729</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -326,56 +339,5 @@
     <MESSAGE value="reverting Back to Bare bones approuch(Printing of two Process works)" />
     <MESSAGE value="working on implemnting to process(half working)" />
     <option name="LAST_COMMIT_MESSAGE" value="working on implemnting to process(half working)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

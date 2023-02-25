@@ -19,17 +19,17 @@ public class processingRoutine {
     stateObj SSD= new stateObj();
     stateObj IO = new stateObj();
     ArrayList<stateObj>CoreList= new ArrayList<>();
-    PriorityQueue<SubProcess> eventQueue= new PriorityQueue<>(subProcessComparator);
+    ArrayList<SubProcess> eventQueue= new ArrayList<>();
     ArrayList <SubProcess> CoreReadyQueue = new ArrayList<>();
     ArrayList<SubProcess> SSDQueue =new ArrayList<>();
     ArrayList<process> ProcessList = new ArrayList<>();
     ArrayList<SubProcess> LockRequestList = new ArrayList<>();
+    ArrayList<stateObj> SixtyFourLocks = new ArrayList<>();
 
     // modify to pick the correct process
     SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime,int firstCheck){
         SubProcess lowestTImeValueSubProcess = new SubProcess();
         int completionTIme=Integer.MAX_VALUE;
-        // check for index of -1
         for(int processIdx = 0; processIdx < subProcessIters.length; processIdx++){
             if(subProcessIters.length==1){
                 lowestTImeValueSubProcess=ProcessList.get(processIdx).ProcessEvents.remove(subProcessIters[processIdx]);
@@ -37,6 +37,7 @@ public class processingRoutine {
                 return lowestTImeValueSubProcess;
             }
             else{
+                // check for index of -1
                 if(subProcessIters[processIdx]==-1){
                     continue;
                 }
@@ -49,18 +50,6 @@ public class processingRoutine {
                     lowestTImeValueSubProcess = currentSubProcess;
                 }
             }
-//            if(subProcessIters[processIdx] < 0)
-//                continue;
-//            SubProcess currentSubProcess = ProcessList.get(processIdx).ProcessEvents.get(subProcessIters[processIdx]);
-//            if(lowestTImeValueSubProcess.subProcessName == null){
-//                lowestTImeValueSubProcess = currentSubProcess;
-//            } else {
-//                int completionTIme = loadingTime + currentSubProcess.timeRequest;
-//                if(completionTIme < loadingTime + lowestTImeValueSubProcess.timeRequest){
-//                    currentSubProcess.CompletionTime=completionTIme;
-//                    lowestTImeValueSubProcess = currentSubProcess;
-//                }
-//            }
         }
 
         return lowestTImeValueSubProcess;
@@ -81,6 +70,11 @@ public class processingRoutine {
         int totalSubProcessesLen = 0;
         for (int processIdx = 0; processIdx < ProcessList.size(); processIdx++) {
             totalSubProcessesLen += ProcessList.get(processIdx).ProcessEvents.size();
+        }
+        //Creating the 64 locks
+        for(int i=0; i<64; i++){
+            stateObj lockObj= new stateObj();
+            SixtyFourLocks.add(lockObj);
         }
 
         for (int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++) {
@@ -118,24 +112,16 @@ public class processingRoutine {
                     }
                 }
             }
-            //subProIters[lowestTimeValueProcess.ProcessNumber]++;
-//          if(lowestTimeValueProcess.subProcessName.equals("START")){
-//              if(firstStartFound==false){
-//                  loadingTime=lowestTimeValueProcess.CompletionTime;
-//                  ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.remove(subProIters[0]);
-//                  firstStartFound=true;
-//              }
-//          }
-//            if(ProcessList.get(intsubpointterIndex).ProcessEvents.isEmpty()){
-//                intsubpointterIndex++;
-//            }
         }
     }
 
     void RoutineLoop(){
         while(!eventQueue.isEmpty()){
-            SubProcess currentProcess=eventQueue.poll();
-            time=currentProcess.CompletionTime;
+            SubProcess currentProcess=eventQueue.remove(0);
+            time+=currentProcess.timeRequest;
+//            if(currentProcess.subProcessName.equals("CPU")&&currentProcess.ProcessNumber==LockRequestList.get(0).ProcessNumber&&!LockRequestList.isEmpty()){
+//                lockRequest(LockRequestList.remove(0));
+//            }
         if(currentProcess.subProcessName.equals("START")){
             ArrivleTime(currentProcess);
         }
@@ -197,7 +183,7 @@ public class processingRoutine {
 
     }
     void inputOutputRequest(SubProcess inputOutputPro){
-        time+=inputOutputPro.getTimeRequest();
+        //time+=inputOutputPro.getTimeRequest();
     }
     void SSDRequest(SubProcess SSDPro){
         if(numberOFSSD>0){
