@@ -24,9 +24,9 @@ public class processingRoutine {
     ArrayList<SubProcess> LockRequestList = new ArrayList<>();
     ArrayList<stateObj> SixtyFourLocks = new ArrayList<>();
 
-    /********************************************************************************************
+    /*************************************************************************************************************************
      * This Function getLowestTimeValueSubProcess() return the process request that will be entered into the event queue first
-     *****************************************************************************************************/
+     **************************************************************************************************************************/
     // modify to pick the correct process
     SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime){
         SubProcess lowestTImeValueSubProcess = new SubProcess();
@@ -104,30 +104,30 @@ public class processingRoutine {
                  * Logic for multiple Process
                  ********************************/
                 //Logic for multiple Process
-                if (lowestTimeValueProcess.subProcessName.equals("START")) {
-                    if (firstStartFound == false) {
-                        loadingTime = lowestTimeValueProcess.CompletionTime;
-                        eventQueue.add(lowestTimeValueProcess);
-                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
-                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
-                        }
-                        firstStartFound = true;
-                    } else {
-                        eventQueue.add(lowestTimeValueProcess);
-                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
-                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
-                        }
-                    }
-                } else {
-                    loadingTime = lowestTimeValueProcess.CompletionTime;
-                    if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
-                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
-                        eventQueue.add(lowestTimeValueProcess);
-                    }
-                    if(subProIters[lowestTimeValueProcess.ProcessNumber]==ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
-                        subProIters[lowestTimeValueProcess.ProcessNumber]=-1;
-                    }
-                }
+//                if (lowestTimeValueProcess.subProcessName.equals("START")) {
+//                    if (firstStartFound == false) {
+//                        loadingTime = lowestTimeValueProcess.CompletionTime;
+//                        eventQueue.add(lowestTimeValueProcess);
+//                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+//                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
+//                        }
+//                        firstStartFound = true;
+//                    } else {
+//                        eventQueue.add(lowestTimeValueProcess);
+//                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+//                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
+//                        }
+//                    }
+//                } else {
+//                    loadingTime = lowestTimeValueProcess.CompletionTime;
+//                    if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+//                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
+//                        eventQueue.add(lowestTimeValueProcess);
+//                    }
+//                    if(subProIters[lowestTimeValueProcess.ProcessNumber]==ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
+//                        subProIters[lowestTimeValueProcess.ProcessNumber]=-1;
+//                    }
+//                }
             }
         }
         RoutineLoop();
@@ -139,14 +139,17 @@ public class processingRoutine {
         while(!eventQueue.isEmpty()){
             SubProcess currentProcess=eventQueue.remove(0);
             time+=currentProcess.timeRequest;
-//            if(currentProcess.subProcessName.equals("CPU")&&currentProcess.ProcessNumber==LockRequestList.get(0).ProcessNumber&&!LockRequestList.isEmpty()){
-//                lockRequest(LockRequestList.remove(0));
-//            }
+
         if(currentProcess.subProcessName.equals("START")){
             ArrivalTime(currentProcess);
         }
         else if(currentProcess.subProcessName.equals("CPU")){
             CoreAvailablity(currentProcess);
+            if(!LockRequestList.isEmpty()&&currentProcess.subProcessName.equals("CPU")&&currentProcess.ProcessNumber==LockRequestList.get(0).ProcessNumber){
+                if(currentProcess.LockBelongs==LockRequestList.get(0).LockBelongs){
+                    lockRequest(LockRequestList.remove(0));
+                }
+            }
         }
         else if(currentProcess.subProcessName.equals("SSD")){
             SSDRequest(currentProcess);

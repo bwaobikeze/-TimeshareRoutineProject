@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         int seenStartOnce=0;
         int count=0;
+        int LockCpu=0;
         processingRoutine beginProcess= new processingRoutine();
         try {
             File myObj = new File("S:\\TimeSharingProcess\\src\\main\\java\\org\\example\\read.txt");
@@ -21,7 +22,7 @@ public class Main {
                 String text = input.nextLine();
                 String[] split1;
                 text.trim();
-                split1 = text.split(" ", 5);
+                split1 = text.split("\\s+", 5);
                 if (split1[0].equals("NCORES")) {
                     int incrementIter=0;
                     while(incrementIter<Integer.parseInt(split1[split1.length - 1])){
@@ -59,7 +60,9 @@ public class Main {
                     currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
                     currentProcess.subProcessName = split1[0];
                     currentProcess.ProcessNumber=count;
+                    currentProcess.LockBelongs=LockCpu;
                     beginProcess.ProcessList.get(count).ProcessEvents.add(currentProcess);
+                    LockCpu++;
                 } else if (split1[0].equals("SSD")) {
                     SubProcess currentProcess = new SubProcess();
                     currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
@@ -77,6 +80,8 @@ public class Main {
                     currentProcess.timeRequest = Integer.parseInt(split1[split1.length - 1]);
                     currentProcess.subProcessName = split1[0];
                     currentProcess.ProcessNumber=count;
+                   int eventListSize=beginProcess.ProcessList.get(currentProcess.ProcessNumber).ProcessEvents.size()-1;
+                    currentProcess.LockBelongs=beginProcess.ProcessList.get(currentProcess.ProcessNumber).ProcessEvents.get(eventListSize).LockBelongs;
                     beginProcess.LockRequestList.add(currentProcess);
                 }
                 else if (split1[0].equals("END")) {

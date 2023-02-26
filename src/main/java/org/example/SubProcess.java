@@ -6,6 +6,7 @@ public class SubProcess {
     int arrivleTime;
     int ProcessNumber;
     int CompletionTime;
+    int LockBelongs;
     int getTimeRequest(){
         return timeRequest;
     }
