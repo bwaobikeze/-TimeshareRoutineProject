@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="Implemented the lock Function(works as of now)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="Added changing states functionality(Project Near Completion)">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/read.txt" afterDir="false" />
     </list>
     <list id="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" name="Changes by uboh" comment="Changes by uboh">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
@@ -38,15 +36,10 @@
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
         <range start1="5" end1="6" start2="4" end2="5" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="106" end1="130" start2="105" end2="129" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="162" end1="164" start2="161" end2="165" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="174" end1="175" start2="175" end2="176" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="177" end1="178" start2="178" end2="181" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="194" end1="194" start2="197" end2="198" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="210" end1="210" start2="214" end2="215" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="220" end1="220" start2="225" end2="226" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="240" end1="241" start2="246" end2="248" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="245" end1="248" start2="252" end2="277" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="176" end1="177" start2="175" end2="175" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="197" end1="198" start2="195" end2="195" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="213" end1="215" start2="210" end2="210" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="253" end1="256" start2="248" end2="273" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -327,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677435762181</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added changing states functionality(Project Near Completion)">
+      <created>1677448235381</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1677448235381</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -342,7 +342,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first Commit" />
     <MESSAGE value="adding core function" />
     <MESSAGE value="adding class files and read.tx" />
     <MESSAGE value="adding class files and read.tx(works)" />
@@ -367,6 +366,7 @@
     <MESSAGE value="working on implemnting to process(added Locks)" />
     <MESSAGE value="working on implemnting to process(Added Comments)" />
     <MESSAGE value="Implemented the lock Function(works as of now)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented the lock Function(works as of now)" />
+    <MESSAGE value="Added changing states functionality(Project Near Completion)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added changing states functionality(Project Near Completion)" />
   </component>
 </project>

@@ -174,7 +174,6 @@ public class processingRoutine {
      *******************************************************************************/
 
     void ArrivalTime(SubProcess arrivePro){
-        //ProcessList.get(arrivePro.ProcessNumber).ProcessState="READY";
         System.out.println("Process "+arrivePro.ProcessNumber+" starts at t="+arrivePro.getTimeRequest()+"ms");
         System.out.println("Current number of busy cores: "+busyCores);
         for(int i=0; i< ProcessList.size();i++){
@@ -195,7 +194,6 @@ public class processingRoutine {
             coreComplete(CoreProcessReady1);
         }
         else{
-            //ProcessList.get(CoreProcessReady1.ProcessNumber).ProcessState="READY";
             ProcessList.get(CoreProcessReady1.ProcessNumber).ProcessState="READY";
             CoreReadyQueue.add(CoreProcessReady1);
         }
@@ -211,8 +209,6 @@ public class processingRoutine {
             CoreReadyQueue.add(CoreProcessReady);
             if(! CoreReadyQueue.isEmpty()){
                 SubProcess tempProcess= CoreReadyQueue.remove(0);
-                //tempProcess.ProcessState="Running";
-                //time+=CoreProcessReady.getTimeRequest();
                 ProcessList.get(CoreProcessReady.ProcessNumber).ProcessState="RUNNING";
                 numberOfCores++;
                 busyCores--;
