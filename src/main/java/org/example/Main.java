@@ -1,7 +1,12 @@
 package org.example;
 import java.io.File;
 import java.util.*;
-
+/**********************************************
+ * Brian Waobikeze
+ * COSC 3360 Fundamentals of Operating Systems
+ * Professor: Jehan-Francois Paris
+ * Section #: 10716
+ ***********************************************/
 
 public class Main {
 
@@ -87,7 +92,7 @@ public class Main {
         }
 
         beginProcess.creatingEventList();
-        beginProcess.RoutineLoop();
+        //beginProcess.RoutineLoop();
 //        beginProcess.creatingEventList();
         //System.out.println(beginProcess.eventQueue.);
 //        while(!beginProcess.eventQueue.isEmpty()){

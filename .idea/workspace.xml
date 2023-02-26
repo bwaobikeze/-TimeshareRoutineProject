@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="working on implemnting to process(added Locks)">
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="working on implemnting to process(Added Comments)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
     </list>
     <list id="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" name="Changes by uboh" comment="Changes by uboh">
@@ -36,22 +38,28 @@
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
         <range start1="5" end1="6" start2="4" end2="5" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="18" end1="20" start2="17" end2="17" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="28" end1="28" start2="25" end2="28" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="33" end1="33" start2="33" end2="34" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="38" end1="38" start2="39" end2="40" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="57" end1="57" start2="59" end2="64" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="116" end1="117" start2="123" end2="126" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="125" end1="126" start2="134" end2="135" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="146" end1="146" start2="155" end2="158" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="147" end1="149" start2="159" end2="160" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="157" end1="157" start2="168" end2="171" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="171" end1="172" start2="185" end2="189" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="178" end1="178" start2="195" end2="196" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="184" end1="184" start2="202" end2="205" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="187" end1="187" start2="208" end2="211" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="196" end1="196" start2="220" end2="224" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="203" end1="206" start2="231" end2="256" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="30" end1="31" start2="29" end2="30" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="34" end1="35" start2="33" end2="36" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="40" end1="41" start2="41" end2="44" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="61" end1="62" start2="64" end2="65" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="64" end1="65" start2="67" end2="68" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="89" end1="91" start2="92" end2="96" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="96" end1="96" start2="101" end2="104" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="123" end1="123" start2="131" end2="132" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="124" end1="125" start2="133" end2="134" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="156" end1="157" start2="165" end2="166" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="158" end1="159" start2="167" end2="168" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="169" end1="170" start2="178" end2="179" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="171" end1="172" start2="180" end2="181" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="186" end1="187" start2="195" end2="196" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="189" end1="190" start2="198" end2="199" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="203" end1="204" start2="212" end2="213" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="205" end1="206" start2="214" end2="215" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="209" end1="210" start2="218" end2="219" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="211" end1="212" start2="220" end2="221" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="221" end1="222" start2="230" end2="231" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="224" end1="225" start2="233" end2="234" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="232" end1="235" start2="241" end2="266" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -311,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677360135128</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="working on implemnting to process(Added Comments)">
+      <created>1677365611755</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1677365611756</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -349,6 +364,7 @@
     <MESSAGE value="reverting Back to Bare bones approuch(Printing of two Process works)" />
     <MESSAGE value="working on implemnting to process(half working)" />
     <MESSAGE value="working on implemnting to process(added Locks)" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on implemnting to process(added Locks)" />
+    <MESSAGE value="working on implemnting to process(Added Comments)" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on implemnting to process(Added Comments)" />
   </component>
 </project>
