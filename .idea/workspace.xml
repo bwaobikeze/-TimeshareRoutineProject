@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="working on implemnting to process(Added Comments)">
+    <list default="true" id="1720707b-ff5d-439f-b16e-f9389b30cb6d" name="Changes" comment="Implemented the lock Function(works as of now)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SubProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/read.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/read.txt" afterDir="false" />
     </list>
     <list id="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" name="Changes by uboh" comment="Changes by uboh">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java" afterDir="false" />
@@ -38,12 +38,15 @@
       <ranges>
         <range start1="2" end1="3" start2="2" end2="2" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
         <range start1="5" end1="6" start2="4" end2="5" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
-        <range start1="26" end1="27" start2="25" end2="26" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="28" end1="29" start2="27" end2="28" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
         <range start1="106" end1="130" start2="105" end2="129" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="141" end1="144" start2="140" end2="141" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="149" end1="149" start2="146" end2="151" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
-        <range start1="242" end1="245" start2="244" end2="269" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
+        <range start1="162" end1="164" start2="161" end2="165" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="174" end1="175" start2="175" end2="176" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="177" end1="178" start2="178" end2="181" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="194" end1="194" start2="197" end2="198" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="210" end1="210" start2="214" end2="215" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="220" end1="220" start2="225" end2="226" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="240" end1="241" start2="246" end2="248" changelist="1720707b-ff5d-439f-b16e-f9389b30cb6d" />
+        <range start1="245" end1="248" start2="252" end2="277" changelist="68e09c9c-3d58-4a07-9fcd-03ec6cebcc7b" />
       </ranges>
     </file>
   </component>
@@ -317,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677373823135</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Implemented the lock Function(works as of now)">
+      <created>1677435762181</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1677435762181</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -356,32 +366,7 @@
     <MESSAGE value="working on implemnting to process(half working)" />
     <MESSAGE value="working on implemnting to process(added Locks)" />
     <MESSAGE value="working on implemnting to process(Added Comments)" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on implemnting to process(Added Comments)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>147</line>
-          <option name="timeStamp" value="112" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/processingRoutine.java</url>
-          <line>149</line>
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Implemented the lock Function(works as of now)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the lock Function(works as of now)" />
   </component>
 </project>

@@ -104,30 +104,30 @@ public class processingRoutine {
                  * Logic for multiple Process
                  ********************************/
                 //Logic for multiple Process
-//                if (lowestTimeValueProcess.subProcessName.equals("START")) {
-//                    if (firstStartFound == false) {
-//                        loadingTime = lowestTimeValueProcess.CompletionTime;
-//                        eventQueue.add(lowestTimeValueProcess);
-//                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
-//                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
-//                        }
-//                        firstStartFound = true;
-//                    } else {
-//                        eventQueue.add(lowestTimeValueProcess);
-//                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
-//                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
-//                        }
-//                    }
-//                } else {
-//                    loadingTime = lowestTimeValueProcess.CompletionTime;
-//                    if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
-//                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
-//                        eventQueue.add(lowestTimeValueProcess);
-//                    }
-//                    if(subProIters[lowestTimeValueProcess.ProcessNumber]==ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
-//                        subProIters[lowestTimeValueProcess.ProcessNumber]=-1;
-//                    }
-//                }
+                if (lowestTimeValueProcess.subProcessName.equals("START")) {
+                    if (firstStartFound == false) {
+                        loadingTime = lowestTimeValueProcess.CompletionTime;
+                        eventQueue.add(lowestTimeValueProcess);
+                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                        }
+                        firstStartFound = true;
+                    } else {
+                        eventQueue.add(lowestTimeValueProcess);
+                        if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+                            subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                        }
+                    }
+                } else {
+                    loadingTime = lowestTimeValueProcess.CompletionTime;
+                    if (subProIters[lowestTimeValueProcess.ProcessNumber] < ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()) {
+                        subProIters[lowestTimeValueProcess.ProcessNumber]++;
+                        eventQueue.add(lowestTimeValueProcess);
+                    }
+                    if(subProIters[lowestTimeValueProcess.ProcessNumber]==ProcessList.get(lowestTimeValueProcess.ProcessNumber).ProcessEvents.size()){
+                        subProIters[lowestTimeValueProcess.ProcessNumber]=-1;
+                    }
+                }
             }
         }
         RoutineLoop();
@@ -160,8 +160,10 @@ public class processingRoutine {
         else{
             ProcessList.get(currentProcess.ProcessNumber).ProcessState="Terminated";
             System.out.println("Process "+ currentProcess.ProcessNumber+" is Terminated at "+time+"ms");
-            System.out.println("Current number of busy cores: "+busyCores);
-            System.out.println("Process "+currentProcess.ProcessNumber+" Is "+ ProcessList.get(currentProcess.ProcessNumber).ProcessState);
+            System.out.println("Current number of busy cores: "+busyCores);;
+            for(int i=0; i< ProcessList.size();i++){
+                System.out.println("Process "+ProcessList.get(i).ProcessNum+" is "+ProcessList.get(i).ProcessState);
+            }
             System.out.println("====================");
         }
 //
@@ -172,10 +174,12 @@ public class processingRoutine {
      *******************************************************************************/
 
     void ArrivalTime(SubProcess arrivePro){
-        ProcessList.get(arrivePro.ProcessNumber).ProcessState="READY";
+        //ProcessList.get(arrivePro.ProcessNumber).ProcessState="READY";
         System.out.println("Process "+arrivePro.ProcessNumber+" starts at t="+arrivePro.getTimeRequest()+"ms");
         System.out.println("Current number of busy cores: "+busyCores);
-        System.out.println("Process "+arrivePro.ProcessNumber+" Is "+ ProcessList.get(arrivePro.ProcessNumber).ProcessState);
+        for(int i=0; i< ProcessList.size();i++){
+            System.out.println("Process "+ProcessList.get(i).ProcessNum+" is "+ProcessList.get(i).ProcessState);
+        }
         System.out.println("====================");
 
 
@@ -192,6 +196,7 @@ public class processingRoutine {
         }
         else{
             //ProcessList.get(CoreProcessReady1.ProcessNumber).ProcessState="READY";
+            ProcessList.get(CoreProcessReady1.ProcessNumber).ProcessState="READY";
             CoreReadyQueue.add(CoreProcessReady1);
         }
 
@@ -208,6 +213,7 @@ public class processingRoutine {
                 SubProcess tempProcess= CoreReadyQueue.remove(0);
                 //tempProcess.ProcessState="Running";
                 //time+=CoreProcessReady.getTimeRequest();
+                ProcessList.get(CoreProcessReady.ProcessNumber).ProcessState="RUNNING";
                 numberOfCores++;
                 busyCores--;
             }
@@ -218,6 +224,7 @@ public class processingRoutine {
      * This Function inputOutputRequest() adds input and output request to the global time.
      *************************************************************************************/
     void inputOutputRequest(SubProcess inputOutputPro){
+        ProcessList.get(inputOutputPro.ProcessNumber).ProcessState="BLOCKED";
         //time+=inputOutputPro.getTimeRequest();
     }
     /******************************************************************
@@ -238,7 +245,8 @@ public class processingRoutine {
      *********************************************************************************************************************************************************/
     void ssdCompletionEvent(SubProcess newSSD){
         SSDQueue.add(newSSD);
-        while(!SSDQueue.isEmpty()){
+        ProcessList.get(newSSD.ProcessNumber).ProcessState="BLOCKED";
+        if(!SSDQueue.isEmpty()){
             SubProcess tempProcess=SSDQueue.remove(0);
             numberOFSSD++;
         }
