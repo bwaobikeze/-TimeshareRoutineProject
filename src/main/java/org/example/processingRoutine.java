@@ -6,12 +6,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class processingRoutine {
-//    Comparator<SubProcess> subProcessComparator = new Comparator<SubProcess>() {
-//        @Override
-//        public int compare(SubProcess o1, SubProcess o2) {
-//            return o1.CompletionTime- o2.CompletionTime;
-//        }
-//    };
+    /*************************************************************************************************************************
+     * These are the properties to this ProcessingRoutine class
+     **************************************************************************************************************************/
     int time=0;
     int busyCores=0;
     int numberOfCores;
@@ -90,7 +87,6 @@ public class processingRoutine {
         }
 
         for (int numOfExecutions = 0; numOfExecutions < totalSubProcessesLen; numOfExecutions++) {
-//            SubProcess lowestTimeValueProcess = ProcessList.get(intsubpointterIndex).ProcessEvents.remove(subProIters[intsubpointterIndex]);
             SubProcess lowestTimeValueProcess=getLowestTimeValueSubProcess(subProIters,loadingTime);
             /*******************************
              * Logic for 1 Process
@@ -134,38 +130,49 @@ public class processingRoutine {
     }
     /******************************************************************************************************
      * This Function RoutineLoop() Runs the main system routine and logs all of the process status updates
+     * As well as calls the differnt routine functions
      *****************************************************************************************************/
     void RoutineLoop(){
+        boolean firstStart=false;
         while(!eventQueue.isEmpty()){
             SubProcess currentProcess=eventQueue.remove(0);
-            time+=currentProcess.timeRequest;
-
-        if(currentProcess.subProcessName.equals("START")){
-            ArrivalTime(currentProcess);
-        }
-        else if(currentProcess.subProcessName.equals("CPU")){
-            CoreAvailablity(currentProcess);
-            if(!LockRequestList.isEmpty()&&currentProcess.subProcessName.equals("CPU")&&currentProcess.ProcessNumber==LockRequestList.get(0).ProcessNumber){
-                if(currentProcess.LockBelongs==LockRequestList.get(0).LockBelongs){
-                    lockRequest(LockRequestList.remove(0));
+            if (currentProcess.subProcessName.equals("START")) {
+                if (firstStart == false) {
+                    time+=currentProcess.timeRequest;
+                    ArrivalTime(currentProcess);
+                    firstStart=true;
+                }else{
+                    ArrivalTime(currentProcess);
                 }
             }
-        }
-        else if(currentProcess.subProcessName.equals("SSD")){
-            SSDRequest(currentProcess);
-        }
-        else if(currentProcess.subProcessName.equals("OUTPUT")||currentProcess.subProcessName.equals("INPUT")){
-            inputOutputRequest(currentProcess);
-        }
-        else{
-            ProcessList.get(currentProcess.ProcessNumber).ProcessState="Terminated";
-            System.out.println("Process "+ currentProcess.ProcessNumber+" is Terminated at "+time+"ms");
-            System.out.println("Current number of busy cores: "+busyCores);;
-            for(int i=0; i< ProcessList.size();i++){
-                System.out.println("Process "+ProcessList.get(i).ProcessNum+" is "+ProcessList.get(i).ProcessState);
+            else {
+                time += currentProcess.timeRequest;
+
+                if (currentProcess.subProcessName.equals("CPU")) {
+                    CoreAvailablity(currentProcess);
+                    if (!LockRequestList.isEmpty() && currentProcess.subProcessName.equals("CPU") && currentProcess.ProcessNumber == LockRequestList.get(0).ProcessNumber) {
+                        if (currentProcess.LockBelongs == LockRequestList.get(0).LockBelongs) {
+                            lockRequest(LockRequestList.remove(0));
+                        }
+                    }
+                } else if (currentProcess.subProcessName.equals("SSD")) {
+                    SSDRequest(currentProcess);
+                } else if (currentProcess.subProcessName.equals("OUTPUT") || currentProcess.subProcessName.equals("INPUT")) {
+                    inputOutputRequest(currentProcess);
+                } else {
+                    ProcessList.get(currentProcess.ProcessNumber).ProcessState = "Terminated";
+                    System.out.println("Process " + currentProcess.ProcessNumber + " is Terminated at " + time + "ms");
+                    System.out.println("Current number of busy cores: " + busyCores);
+                    ;
+                    for (int i = 0; i < ProcessList.size(); i++) {
+                        if(ProcessList.get(i).ProcessNum== currentProcess.ProcessNumber){
+                            continue;
+                        }
+                        System.out.println("Process " + ProcessList.get(i).ProcessNum + " is " + ProcessList.get(i).ProcessState);
+                    }
+                    System.out.println("====================");
+                }
             }
-            System.out.println("====================");
-        }
 //
 }
     }
@@ -176,7 +183,11 @@ public class processingRoutine {
     void ArrivalTime(SubProcess arrivePro){
         System.out.println("Process "+arrivePro.ProcessNumber+" starts at t="+arrivePro.getTimeRequest()+"ms");
         System.out.println("Current number of busy cores: "+busyCores);
+        ProcessList.get(arrivePro.ProcessNumber).ProcessState="Ready";
         for(int i=0; i< ProcessList.size();i++){
+            if(ProcessList.get(i).ProcessNum== arrivePro.ProcessNumber){
+                continue;
+            }
             System.out.println("Process "+ProcessList.get(i).ProcessNum+" is "+ProcessList.get(i).ProcessState);
         }
         System.out.println("====================");
@@ -185,6 +196,9 @@ public class processingRoutine {
     }
     /*****************************************************************************
      * This Function CoreAvailablity() checks to see if there is a core available
+     * if there is it decrements from the total number of cores and increments busy cores
+     * and then passes the subprocess to CoreComplete(). else it puts the process in
+     * a READY state and then pushes it into the core queue.
      *****************************************************************************/
     public void CoreAvailablity(SubProcess CoreProcessReady1){
 
@@ -201,11 +215,11 @@ public class processingRoutine {
 
     }
     /**********************************************************************************************************************************************************
-     * This Function CoreComplete() computes the core completion task(adding the requested time to the global clock) after CoreAvailablity() checks and there
-     * is a available core
+     * This Function CoreComplete() computes the core completion task after CoreAvailablity() checks and there
+     * is a available core. it also checks if anything is in the core queue if there is then it pops from the front of the queue
+     * and switches the subprocess's process into a RUNNING state then increment the
      *********************************************************************************************************************************************************/
     void coreComplete(SubProcess CoreProcessReady){
-            //CoreProcessReady.ProcessState="Ready";
             CoreReadyQueue.add(CoreProcessReady);
             if(! CoreReadyQueue.isEmpty()){
                 SubProcess tempProcess= CoreReadyQueue.remove(0);
@@ -217,11 +231,12 @@ public class processingRoutine {
 
     }
     /**************************************************************************************
-     * This Function inputOutputRequest() adds input and output request to the global time.
+     * This Function inputOutputRequest() adds input and output request to the global time
+     * (I do this priyer to passing in the input/output. so this function just puts the process
+     * into a BLOCKED state.
      *************************************************************************************/
     void inputOutputRequest(SubProcess inputOutputPro){
         ProcessList.get(inputOutputPro.ProcessNumber).ProcessState="BLOCKED";
-        //time+=inputOutputPro.getTimeRequest();
     }
     /******************************************************************
      * his Function SSDRequest() checks to see if the SSD is available
@@ -236,7 +251,7 @@ public class processingRoutine {
         }
     }
     /*********************************************************************************************************************************************************
-     * This Function ssdCompletionEvent() computes the SSD completion task(adding the requested time to the global clock) after SSDRequest() checks and there
+     * This Function ssdCompletionEvent() computes the SSD completion task after SSDRequest() checks and there
      * is a available SSD
      *********************************************************************************************************************************************************/
     void ssdCompletionEvent(SubProcess newSSD){

@@ -98,5 +98,11 @@ public class Main {
         }
 
         beginProcess.creatingEventList();
+//        for(int i=0; i<beginProcess.eventQueue.size();i++){
+//            System.out.println(beginProcess.eventQueue.get(i).subProcessName);
+//            System.out.println(beginProcess.eventQueue.get(i).timeRequest);
+//            System.out.println(beginProcess.eventQueue.get(i).ProcessNumber);
+//            System.out.println("===============================================");
+//        }
     }
 }
