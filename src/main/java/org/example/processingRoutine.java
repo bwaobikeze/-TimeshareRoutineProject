@@ -13,7 +13,6 @@ public class processingRoutine {
     int busyCores=0;
     int numberOfCores;
     int numberOFSSD=1;
-    ArrayList<stateObj>CoreList= new ArrayList<>();
     ArrayList<SubProcess> eventQueue= new ArrayList<>();
     ArrayList <SubProcess> CoreReadyQueue = new ArrayList<>();
     ArrayList<SubProcess> SSDQueue =new ArrayList<>();
@@ -23,6 +22,7 @@ public class processingRoutine {
 
     /*************************************************************************************************************************
      * This Function getLowestTimeValueSubProcess() return the process request that will be entered into the event queue first
+     * based on their completion time
      **************************************************************************************************************************/
     // modify to pick the correct process
     SubProcess getLowestTimeValueSubProcess (int[] subProcessIters, int loadingTime){
@@ -163,7 +163,8 @@ public class processingRoutine {
                     ProcessList.get(currentProcess.ProcessNumber).ProcessState = "Terminated";
                     System.out.println("Process " + currentProcess.ProcessNumber + " is Terminated at " + time + "ms");
                     System.out.println("Current number of busy cores: " + busyCores);
-                    ;
+                    System.out.println("Process " + ProcessList.get(currentProcess.ProcessNumber).ProcessNum + " is " + ProcessList.get(currentProcess.ProcessNumber).ProcessState);
+
                     for (int i = 0; i < ProcessList.size(); i++) {
                         if(ProcessList.get(i).ProcessNum== currentProcess.ProcessNumber){
                             continue;
@@ -184,6 +185,7 @@ public class processingRoutine {
         System.out.println("Process "+arrivePro.ProcessNumber+" starts at t="+arrivePro.getTimeRequest()+"ms");
         System.out.println("Current number of busy cores: "+busyCores);
         ProcessList.get(arrivePro.ProcessNumber).ProcessState="Ready";
+        System.out.println("Process " + ProcessList.get(arrivePro.ProcessNumber).ProcessNum + " is " + ProcessList.get(arrivePro.ProcessNumber).ProcessState);
         for(int i=0; i< ProcessList.size();i++){
             if(ProcessList.get(i).ProcessNum== arrivePro.ProcessNumber){
                 continue;
@@ -232,7 +234,7 @@ public class processingRoutine {
     }
     /**************************************************************************************
      * This Function inputOutputRequest() adds input and output request to the global time
-     * (I do this priyer to passing in the input/output. so this function just puts the process
+     * (I do this prior to passing in the input/output. so this function just puts the process
      * into a BLOCKED state.
      *************************************************************************************/
     void inputOutputRequest(SubProcess inputOutputPro){
